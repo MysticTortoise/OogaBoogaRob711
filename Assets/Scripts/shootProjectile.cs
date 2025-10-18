@@ -5,10 +5,10 @@ using UnityEngine;
 
 public class shootProjectile : MonoBehaviour
 {
-    public Transform projectile;
-    public Transform enemy;
-    public Transform player;
-    public Rigidbody2D rb;
+    private Transform projectile;
+    private Transform enemy;
+    private Transform player;
+    private Rigidbody2D rb;
     private float timer;
     public float speed;
     private Boolean runUpdate = false;
