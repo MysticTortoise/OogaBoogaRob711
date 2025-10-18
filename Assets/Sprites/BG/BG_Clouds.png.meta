@@ -1,28 +1,28 @@
 fileFormatVersion: 2
-guid: efc685bf08b916548ac51be3077d7a00
+guid: c6d0d2ea2ae8346ddbe64389ecf77622
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -602783346140374355
-    second: BG_Clouds_0
+      213: -3256193391170679568
+    second: BG_Clouds 1_0
   - first:
-      213: 7076355665006166833
-    second: BG_Clouds_1
+      213: 6185628525146789997
+    second: BG_Clouds 1_1
   - first:
-      213: 7121197322151693233
-    second: BG_Clouds_2
+      213: 1803608168204863804
+    second: BG_Clouds 1_2
   - first:
-      213: -5272690277750612052
-    second: BG_Clouds_3
+      213: 2803552010163164749
+    second: BG_Clouds 1_3
   - first:
-      213: 329880437454288777
-    second: BG_Clouds_4
+      213: -8810251635165700489
+    second: BG_Clouds 1_4
   - first:
-      213: -5866027309098098924
-    second: BG_Clouds_5
+      213: -827168548349312784
+    second: BG_Clouds 1_5
   - first:
-      213: 222646877403207696
-    second: BG_Clouds_6
+      213: -1749494177481032156
+    second: BG_Clouds 1_6
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -64,9 +64,9 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 0
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
@@ -131,7 +131,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BG_Clouds_0
+      name: BG_Clouds 1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -146,14 +146,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: daa18c88dbb72a7f0800000000000000
-      internalID: -602783346140374355
+      spriteID: 0fc0c4fdc5dafc2d0800000000000000
+      internalID: -3256193391170679568
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BG_Clouds_1
+      name: BG_Clouds 1_1
       rect:
         serializedVersion: 2
         x: 0
@@ -168,14 +168,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 13304053cf3443260800000000000000
-      internalID: 7076355665006166833
+      spriteID: d68d5e9ee54c7d550800000000000000
+      internalID: 6185628525146789997
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BG_Clouds_2
+      name: BG_Clouds 1_2
       rect:
         serializedVersion: 2
         x: 112
@@ -190,14 +190,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1bb805a1c3393d260800000000000000
-      internalID: 7121197322151693233
+      spriteID: c3908d3b214b70910800000000000000
+      internalID: 1803608168204863804
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BG_Clouds_3
+      name: BG_Clouds 1_3
       rect:
         serializedVersion: 2
         x: 971
@@ -212,14 +212,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: cafd408d024a3d6b0800000000000000
-      internalID: -5272690277750612052
+      spriteID: d469b1b03b738e620800000000000000
+      internalID: 2803552010163164749
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BG_Clouds_4
+      name: BG_Clouds 1_4
       rect:
         serializedVersion: 2
         x: 0
@@ -234,14 +234,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 98730d49288f39400800000000000000
-      internalID: 329880437454288777
+      spriteID: 77ed42801d2bbb580800000000000000
+      internalID: -8810251635165700489
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BG_Clouds_5
+      name: BG_Clouds 1_5
       rect:
         serializedVersion: 2
         x: 53
@@ -256,14 +256,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 41f977eed3fa79ea0800000000000000
-      internalID: -5866027309098098924
+      spriteID: 0f0834a769e4584f0800000000000000
+      internalID: -827168548349312784
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BG_Clouds_6
+      name: BG_Clouds 1_6
       rect:
         serializedVersion: 2
         x: 955
@@ -278,8 +278,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 018d7f5c720071300800000000000000
-      internalID: 222646877403207696
+      spriteID: 42ef0a6905c88b7e0800000000000000
+      internalID: -1749494177481032156
       vertices: []
       indices: 
       edges: []
@@ -288,7 +288,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -298,13 +298,13 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      BG_Clouds_0: -602783346140374355
-      BG_Clouds_1: 7076355665006166833
-      BG_Clouds_2: 7121197322151693233
-      BG_Clouds_3: -5272690277750612052
-      BG_Clouds_4: 329880437454288777
-      BG_Clouds_5: -5866027309098098924
-      BG_Clouds_6: 222646877403207696
+      BG_Clouds 1_0: -3256193391170679568
+      BG_Clouds 1_1: 6185628525146789997
+      BG_Clouds 1_2: 1803608168204863804
+      BG_Clouds 1_3: 2803552010163164749
+      BG_Clouds 1_4: -8810251635165700489
+      BG_Clouds 1_5: -827168548349312784
+      BG_Clouds 1_6: -1749494177481032156
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
