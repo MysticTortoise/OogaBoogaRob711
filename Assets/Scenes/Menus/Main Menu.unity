@@ -149,8 +149,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 374732087}
   - {fileID: 1274408123}
+  - {fileID: 374732087}
   m_Father: {fileID: 905737983}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
@@ -183,6 +183,7 @@ MonoBehaviour:
   backgroundAnimator: {fileID: 1274408126}
   confirmButton: {fileID: 137843363}
   confirmText: {fileID: 792104015}
+  xButtonImage: {fileID: 374732091}
   deltarune: {fileID: 1867821128}
   deltaruneAudio: {fileID: 255075212}
 --- !u!1 &137843361

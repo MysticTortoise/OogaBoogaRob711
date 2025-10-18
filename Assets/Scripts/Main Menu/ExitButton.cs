@@ -14,6 +14,7 @@ public class ExitButton : MonoBehaviour
     [SerializeField] Animator backgroundAnimator;
     [SerializeField] Button confirmButton;
     [SerializeField] TextMeshProUGUI confirmText;
+    [SerializeField] Image xButtonImage;
 
     [SerializeField] Image deltarune;
     [SerializeField] AudioSource deltaruneAudio;
@@ -38,6 +39,10 @@ public class ExitButton : MonoBehaviour
     {
         isAnimating = true;
         confirmButton.interactable = false;
+        
+        xButtonImage.DOFade(0, 0.15f);
+        xButtonImage.rectTransform.DOScale(0, 0.15f);
+
         confirmText.text = "CONFIRM (3)";
         backgroundAnimator.SetTrigger("ExitButtonEnter");
         yield return new WaitForSeconds(backgroundAnimator.GetCurrentAnimatorClipInfo(0)[0].clip.length);
@@ -56,6 +61,8 @@ public class ExitButton : MonoBehaviour
         backgroundAnimator.SetTrigger("ExitButtonExit");
         confirmButton.interactable = false;
         yield return new WaitForSeconds(backgroundAnimator.GetCurrentAnimatorClipInfo(0)[0].clip.length);
+        xButtonImage.color = new Color(1, 1, 1, 1);
+        xButtonImage.rectTransform.localScale = Vector3.one;
         isAnimating = false;
         confirmExit = false;
         exitButtonBackground.SetActive(false);
@@ -67,7 +74,7 @@ public class ExitButton : MonoBehaviour
 
         deltarune.gameObject.SetActive(true);
         deltaruneAudio.Play();
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.6f);
 
         #if UNITY_EDITOR
         Debug.Break();
