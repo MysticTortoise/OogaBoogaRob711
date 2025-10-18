@@ -54,6 +54,13 @@ public class ThrownRock : MonoBehaviour
         if (amount > 0)
         {
             active = false;
+            foreach(Collider2D collider in colliders)
+            {
+                if (collider.GetComponent<HittableBase>() is HittableBase hittable)
+                {
+                    hittable.Hit(HitType.Rock);
+                }
+            }
         }
     }
 

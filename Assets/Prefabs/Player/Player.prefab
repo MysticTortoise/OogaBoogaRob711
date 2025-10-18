@@ -249,7 +249,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -999
   m_TargetDisplay: 0
 --- !u!114 &1193713579265709386
 MonoBehaviour:
@@ -673,10 +673,11 @@ MonoBehaviour:
   standardGravity: 17
   noHoldJumpModifier: 2.5
   dashSpeed: 90
-  dashDuration: 0.14
+  dashDuration: 0.2
   dashCooldown: 0.6
   iFrameBuffer: 0.05
   flashInterval: 0.09
+  dashHitboxExtra: 2.55
   afterImagePrefab: {fileID: 2192109175974210728, guid: f43a75ea7c2bc4dd6a0cce1baa79eab1, type: 3}
   afterImageLifetime: 0.3
   afterImageSpawnInterval: 0.05

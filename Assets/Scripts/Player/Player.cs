@@ -27,6 +27,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float dashCooldown = 0.6f;
     [SerializeField] private float iFrameBuffer = 0.05f;
     [SerializeField] private float flashInterval;
+    [SerializeField] private float dashHitboxExtra;
 
     [Header("Dash After Image")]
     public GameObject afterImagePrefab;
@@ -166,9 +167,9 @@ public class Player : MonoBehaviour
         int boxes = Physics2D.OverlapBox(boxCollider.bounds.center + (Vector3)stickboxOffset, stickboxSize, 0, new ContactFilter2D(), colliders);
         for (int i = 0; i < boxes; i++)
         {
-            if (colliders[i].GetComponent<enemyMovement>() is enemyMovement enemy)
+            if (colliders[i].GetComponent<HittableBase>() is HittableBase hittable)
             {
-                // Do Damage
+                hittable.Hit(HitType.Stick);
             }
         }
     }
@@ -237,6 +238,19 @@ public class Player : MonoBehaviour
         {
             rb.linearVelocityX = dashSpeed * (dashRight ? 1 : -1);
             canTakeDamage = false;
+
+            List<Collider2D> colliders = new List<Collider2D>();
+            Physics2D.OverlapBox(boxCollider.bounds.center,
+                boxCollider.bounds.size + new Vector3(dashHitboxExtra, dashHitboxExtra),
+                0, new ContactFilter2D(), colliders);
+
+            foreach (Collider2D collider in colliders)
+            {
+                if (collider.GetComponent<HittableBase>() is HittableBase hittable)
+                {
+                    hittable.Hit(HitType.Dash);
+                }
+            }
         }
 
         // Visuals
@@ -327,6 +341,10 @@ public class Player : MonoBehaviour
 
         Gizmos.color = Color.red;
         Gizmos.DrawWireCube(boxCollider.bounds.center + (Vector3)stickboxOffset, stickboxSize);
+        
+        Gizmos.color = Color.magenta;
+        Gizmos.DrawWireCube(boxCollider.bounds.center,
+            boxCollider.bounds.size + new Vector3(dashHitboxExtra, dashHitboxExtra));
     }
     #endif
 }
