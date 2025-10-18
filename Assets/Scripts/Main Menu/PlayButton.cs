@@ -52,7 +52,7 @@ public class PlayButton : MonoBehaviour
         sequence.Join(playButton.image.rectTransform.DORotate(new Vector3(0, 0, 360), 0.8f, RotateMode.FastBeyond360).SetEase(Ease.OutQuart));
         sequence.Append(playButton.transform.DOScale(1, 0.2f)).SetEase(Ease.OutCubic);
 
-        yield return sequence.WaitForCompletion();
+        yield return new WaitForSeconds(0.2f);
         playButtonAnimator.SetTrigger("PlayButtonCommence");
 
         yield return new WaitForSeconds(.2f);
