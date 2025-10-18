@@ -1,7 +1,12 @@
 using System;
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using System.Numerics;
+using Unity.VisualScripting;
 using UnityEngine.InputSystem;
+using Vector2 = UnityEngine.Vector2;
+using Vector3 = UnityEngine.Vector3;
 
 public class Player : MonoBehaviour
 {
@@ -33,6 +38,14 @@ public class Player : MonoBehaviour
     [SerializeField] private float cameraAheadAmount;
     [SerializeField] private float cameraTweenAmount;
     [SerializeField] private float cameraYAmount;
+    
+    [Header("Attacks")]
+    [SerializeField] private Vector2 stickboxOffset;
+    [SerializeField] private Vector2 stickboxSize;
+
+    [SerializeField] private GameObject rockPrefab;
+    [SerializeField] private int maxRocks;
+    [SerializeField] private float throwSpeed;
 
     // --- internals ---
     private Rigidbody2D rb;
@@ -40,11 +53,14 @@ public class Player : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private Animator animator;
     private Transform cameraTransform;
+    private Camera cameraComp;
     
     // Private Variables
     // --- Input Axis ---
     private float horizMoveInput;
     private float jumpAxis;
+
+    private Vector2 aimPos;
     // Jump Variables
     private bool jumping => jumpAxis > jumpDeadzone;
     private bool bufferedJump;
@@ -61,6 +77,9 @@ public class Player : MonoBehaviour
     // Input Variables
     private float noInputTimer;
     private bool canInput => noInputTimer <= 0;
+    
+    // Attack Variables
+    private List<ThrownRock> rocks = new List<ThrownRock>();
 
     // Statuses
     private bool grounded;
@@ -72,6 +91,12 @@ public class Player : MonoBehaviour
         boxCollider = GetComponent<BoxCollider2D>();
         animator = GetComponent<Animator>();
         cameraTransform = transform.parent.Find("Camera");
+        cameraComp = cameraTransform.GetComponent<Camera>();
+        
+        for (int i = 0; i < maxRocks; i++)
+        {
+            rocks.Add(Instantiate(rockPrefab).GetComponent<ThrownRock>());
+        }
     }
 
     public void MoveInput(InputAction.CallbackContext context)
@@ -93,6 +118,11 @@ public class Player : MonoBehaviour
         jumpAxis = val;
     }
 
+    public void AimInput(InputAction.CallbackContext context)
+    {
+        aimPos = context.ReadValue<Vector2>() / new Vector2(Screen.width, Screen.height);
+    }
+
     public void DodgeRoll()
     {
         if (dashOnCooldown || !canInput)
@@ -104,6 +134,36 @@ public class Player : MonoBehaviour
         dashTimer = -dashDuration;
         dashRight = facingRight;
         StartCoroutine(IFrameFlash());
+    }
+
+    public void Strike()
+    {
+        var colliders = new List<Collider2D>();
+        int boxes = Physics2D.OverlapBox(boxCollider.bounds.center + (Vector3)stickboxOffset, stickboxSize, 0, new ContactFilter2D(), colliders);
+        for (int i = 0; i < boxes; i++)
+        {
+            if (colliders[i].GetComponent<enemyMovement>() is enemyMovement enemy)
+            {
+                // Do Damage
+            }
+        }
+    }
+
+    public void ThrowRock(InputAction.CallbackContext context)
+    {
+        if (!context.started)
+        {
+            return;
+        }
+        foreach (ThrownRock rock in rocks)
+        {
+            if (!rock.IsActive())
+            {
+                Vector3 target = cameraComp.ViewportToWorldPoint(aimPos);
+                rock.Throw(transform.position, (target - transform.position).normalized * throwSpeed);
+                return;
+            }
+        }
     }
 
     private void Update()
@@ -207,13 +267,18 @@ public class Player : MonoBehaviour
         Debug.Log(health);
     }
 
+    #if UNITY_EDITOR
     private void OnDrawGizmosSelected()
     {
         if (boxCollider == null)
         {
             boxCollider = GetComponent<BoxCollider2D>();
         }
-        Gizmos.color = Color.red;
+        Gizmos.color = Color.blue;
         Gizmos.DrawWireCube((Vector2)boxCollider.bounds.center - new Vector2(0, boxCollider.bounds.size.y * 0.5f), new Vector2(boxCollider.bounds.size.x * 0.9f, 0.1f));
+
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireCube(boxCollider.bounds.center + (Vector3)stickboxOffset, stickboxSize);
     }
+    #endif
 }

@@ -71,7 +71,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 20.82
+  orthographic size: 25
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -681,6 +681,11 @@ MonoBehaviour:
   cameraAheadAmount: 3
   cameraTweenAmount: 6
   cameraYAmount: 3
+  stickboxOffset: {x: 5.59, y: -0.02}
+  stickboxSize: {x: 6.03, y: 8.83}
+  rockPrefab: {fileID: 2724678614697140507, guid: ec9d17e656af3bc4490578cc5726c85b, type: 3}
+  maxRocks: 3
+  throwSpeed: 150
 --- !u!114 &6939166586695113105
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -754,6 +759,54 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: d89164da-a1c1-4ec0-9179-214348bd2cd9
     m_ActionName: 'MainGame/Dodge[/Keyboard/shift]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7621461181285738032}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: Strike
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 7bcd306e-85b9-4f5d-879c-33cfcffb9f83
+    m_ActionName: 'MainGame/Stick[/Mouse/leftButton]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7621461181285738032}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: ThrowRock
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: ced8ce28-8990-45f7-9cb1-2fe13bd9ee36
+    m_ActionName: 'MainGame/Rock[/Mouse/rightButton]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7621461181285738032}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: AimInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 3a9d696d-f5f3-492f-90e9-c5ecebeefaf9
+    m_ActionName: 'MainGame/Aim[/Mouse/position]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: MainGame
