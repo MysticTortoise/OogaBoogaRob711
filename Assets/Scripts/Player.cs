@@ -35,15 +35,20 @@ public class Player : MonoBehaviour
     
     private float horizMoveInput;
     private float jumpAxis;
-    private bool jumping
-    {
-        get { return jumpAxis > jumpDeadzone; }
-    }
-    
+    private bool jumping => jumpAxis > jumpDeadzone;
+
+    private float dashTimer = 0;
+    private bool dashRight = true;
+    private bool dashing => dashTimer < 0;
+    private bool dashOnCooldown => dashTimer < dashCooldown;
+
+    private float noInputTimer = 0;
+    private bool canInput => noInputTimer > 0;
+
 
     private bool grounded = false;
 
-    void Start()
+    private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -65,21 +70,42 @@ public class Player : MonoBehaviour
         jumpAxis = val;
     }
 
-    void Update()
+    public void DodgeRoll()
     {
-        rb.AddForceX(horizMoveInput * acceleration * Time.deltaTime * rb.mass, ForceMode2D.Impulse);
-        rb.linearVelocityX = Mathf.Clamp(rb.linearVelocityX, -moveSpeed, moveSpeed);
+        if (dashOnCooldown || !canInput)
+        {
+            return;
+        }
+        
+        noInputTimer = dashDuration;
+        dashTimer = -dashDuration;
+        dashRight = horizMoveInput > 0;
+    }
+
+    private void Update()
+    {
+        dashTimer += Time.deltaTime;
+        noInputTimer += Time.deltaTime;
+
+        
+        if (canInput)
+        {
+            rb.AddForceX(horizMoveInput * acceleration * Time.deltaTime * rb.mass, ForceMode2D.Impulse);
+            rb.linearVelocityX = Mathf.Clamp(rb.linearVelocityX, -moveSpeed, moveSpeed);
+            rb.gravityScale = Mathf.Lerp(standardGravity, standardGravity * holdJumpGravityModifier, jumpAxis);
+        }
 
         grounded = Physics2D.OverlapBox((Vector2)boxCollider.bounds.center - new Vector2(0, boxCollider.bounds.size.y * 0.5f), new Vector2(boxCollider.bounds.size.x * 0.9f, 0.1f), 0, boxCollider.includeLayers);
         
         
-
-            rb.gravityScale = Mathf.Lerp(standardGravity, standardGravity * holdJumpGravityModifier, jumpAxis);
-        
-
         if (Mathf.Abs(horizMoveInput) < 0.01f)
         {
             rb.AddForceX(Mathf.Min(deceleration * Time.deltaTime, Mathf.Abs(rb.linearVelocityX)) * -Mathf.Sign(rb.linearVelocityX) * rb.mass, ForceMode2D.Impulse);
+        }
+        
+        if (dashing)
+        {
+            
         }
         
     }
