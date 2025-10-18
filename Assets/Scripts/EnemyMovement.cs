@@ -60,4 +60,12 @@ public class EnemyMovement : HittableBase
             Destroy(gameObject);
         }
     }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireCube(transform.position, new Vector3(startMovingThreshold*2, 900));
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireCube(transform.position, new Vector3(stopMovingThreshold*2, 900));
+    }
 }
