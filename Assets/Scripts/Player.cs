@@ -32,29 +32,31 @@ public class Player : MonoBehaviour
     private Rigidbody2D rb;
     private BoxCollider2D boxCollider;
     private SpriteRenderer spriteRenderer;
+    private Animator animator;
     
     private float horizMoveInput;
     private float jumpAxis;
     private bool jumping => jumpAxis > jumpDeadzone;
     private bool facingRight;
-    private bool bufferedJump = false;
+    private bool bufferedJump;
 
-    private float dashTimer = 0;
+    private float dashTimer;
     private bool dashRight = true;
     private bool dashing => dashTimer < 0;
     private bool dashOnCooldown => dashTimer < dashCooldown;
 
-    private float noInputTimer = 0;
+    private float noInputTimer;
     private bool canInput => noInputTimer <= 0;
 
 
-    private bool grounded = false;
+    private bool grounded;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer = transform.Find("Sprite").GetComponent<SpriteRenderer>();
         boxCollider = GetComponent<BoxCollider2D>();
+        animator = GetComponent<Animator>();
     }
 
     public void MoveInput(InputAction.CallbackContext context)
@@ -138,6 +140,7 @@ public class Player : MonoBehaviour
 
 
         spriteRenderer.flipX = !facingRight;
+        animator.SetFloat("MoveSpeed", rb.linearVelocityX);
     }
 
     void FixedUpdate()

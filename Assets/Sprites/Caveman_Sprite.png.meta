@@ -48,7 +48,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
@@ -116,10 +116,10 @@ TextureImporter:
       name: Caveman_Sprite_0
       rect:
         serializedVersion: 2
-        x: 188
-        y: 3
-        width: 645
-        height: 996
+        x: 0
+        y: 0
+        width: 833
+        height: 1000
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -134,11 +134,55 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Caveman_Sprite_1
+      rect:
+        serializedVersion: 2
+        x: 833
+        y: 0
+        width: 833
+        height: 1000
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ec035f507f4d2145862676cdeb837f1
+      internalID: 1750004655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Caveman_Sprite_2
+      rect:
+        serializedVersion: 2
+        x: 1666
+        y: 0
+        width: 833
+        height: 1000
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 834409b800154db4b941dd1d33d48d8a
+      internalID: 1950495668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 61bfb0102e13aa34dafd5d7c914be8a4
     internalID: 0
     vertices: []
     indices: 
@@ -149,6 +193,8 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       Caveman_Sprite_0: 8125757742330551797
+      Caveman_Sprite_1: 1750004655
+      Caveman_Sprite_2: 1950495668
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
