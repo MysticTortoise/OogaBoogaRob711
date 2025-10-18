@@ -26,7 +26,7 @@ public class Player : MonoBehaviour
 
     // --- internals ---
     private Rigidbody2D rb;
-    private SpriteRenderer sr;          // <-- NEW
+    private SpriteRenderer spriteRenderer;          // <-- NEW
     private Vector2 moveInput;
     private bool isGrounded;
     private bool facingRight = true;
@@ -36,7 +36,12 @@ public class Player : MonoBehaviour
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        sr = GetComponent<SpriteRenderer>();  // <-- NEW: get the sprite renderer
+        spriteRenderer = GetComponent<SpriteRenderer>();  // <-- NEW: get the sprite renderer
+    }
+
+    public void MoveInput(float value)
+    {
+        
     }
 
     void Update()
@@ -107,21 +112,21 @@ public class Player : MonoBehaviour
         float flashInterval = 0.1f; // how fast it flickers
         float elapsed = 0f;
 
-        Color normalColor = sr.color;
-        Color transparentColor = sr.color;
+        Color normalColor = spriteRenderer.color;
+        Color transparentColor = spriteRenderer.color;
         transparentColor.a = 0.3f;
 
         while (elapsed < flashDuration)
         {
-            sr.color = transparentColor;
+            spriteRenderer.color = transparentColor;
             yield return new WaitForSeconds(flashInterval);
-            sr.color = normalColor;
+            spriteRenderer.color = normalColor;
             yield return new WaitForSeconds(flashInterval);
             elapsed += flashInterval * 2f;
         }
 
         //set colors back
-        sr.color = normalColor;
+        spriteRenderer.color = normalColor;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
