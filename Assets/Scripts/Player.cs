@@ -14,13 +14,14 @@ public class Player : MonoBehaviour
     [SerializeField] private float jumpForce = 12f;
     [SerializeField] [Range(0, 1)] private float jumpDeadzone = 0.02f;
     [SerializeField] private float standardGravity = 3;
-    [SerializeField] private float holdJumpGravityModifier = 1;
+    [SerializeField] private float noHoldJumpModifier = 1;
 
     [Header("Dash")]
-    public float dashSpeed = 18f;
-    public float dashDuration = 0.18f;
-    public float dashCooldown = 0.6f;
-    public float iFrameBuffer = 0.05f;
+    [SerializeField] private float dashSpeed = 18f;
+    [SerializeField] private float dashDuration = 0.18f;
+    [SerializeField] private float dashCooldown = 0.6f;
+    [SerializeField] private float iFrameBuffer = 0.05f;
+    [SerializeField] private float flashInterval;
 
     [Header("Stats")]
     public int health = 1000;
@@ -94,7 +95,7 @@ public class Player : MonoBehaviour
 
     public void DodgeRoll()
     {
-        if (dashOnCooldown || !canInput || !grounded)
+        if (dashOnCooldown || !canInput)
         {
             return;
         }
@@ -102,6 +103,7 @@ public class Player : MonoBehaviour
         noInputTimer = dashDuration;
         dashTimer = -dashDuration;
         dashRight = facingRight;
+        StartCoroutine(IFrameFlash());
     }
 
     private void Update()
@@ -112,7 +114,7 @@ public class Player : MonoBehaviour
         // Jump Handler
         if (bufferedJump && canInput)
         {
-            rb.AddForceY(jumpForce);
+            rb.AddForceY(jumpForce, ForceMode2D.Impulse);
             bufferedJump = false;
         }
         
@@ -135,7 +137,7 @@ public class Player : MonoBehaviour
             rb.AddForceX(horizMoveInput * acceleration * Time.deltaTime * rb.mass, ForceMode2D.Impulse);
             rb.linearVelocityX = Mathf.Clamp(rb.linearVelocityX, -moveSpeed, moveSpeed);
 
-            rb.gravityScale = rb.linearVelocityY > 0 ? Mathf.Lerp(standardGravity, standardGravity * holdJumpGravityModifier, jumpAxis) : standardGravity;
+            rb.gravityScale = rb.linearVelocityY > 0 ? Mathf.Lerp(standardGravity * noHoldJumpModifier, standardGravity, jumpAxis) : standardGravity;
         }
     
         // Grounded Check
@@ -167,7 +169,6 @@ public class Player : MonoBehaviour
     private IEnumerator IFrameFlash()
     {
         float flashDuration = dashDuration + iFrameBuffer;
-        float flashInterval = 0.1f; // how fast it flickers
         float elapsed = 0f;
 
         Color normalColor = spriteRenderer.color;
@@ -198,11 +199,12 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        // if (canTakeDamage && other.CompareTag("Enemy"))
-        // {
-        //     health -= 100;
-        //     if (health <= 0) { /* death */ }
-        // }
+        if (canTakeDamage && other.CompareTag("Enemy"))
+        {
+            health -= 100;
+            if (health <= 0) { /* death */ }
+        }
+        Debug.Log(health);
     }
 
     private void OnDrawGizmosSelected()
