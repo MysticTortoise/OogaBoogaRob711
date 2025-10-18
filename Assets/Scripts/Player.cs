@@ -36,6 +36,8 @@ public class Player : MonoBehaviour
     private float horizMoveInput;
     private float jumpAxis;
     private bool jumping => jumpAxis > jumpDeadzone;
+    private bool facingRight;
+    private bool bufferedJump = false;
 
     private float dashTimer = 0;
     private bool dashRight = true;
@@ -43,7 +45,7 @@ public class Player : MonoBehaviour
     private bool dashOnCooldown => dashTimer < dashCooldown;
 
     private float noInputTimer = 0;
-    private bool canInput => noInputTimer > 0;
+    private bool canInput => noInputTimer <= 0;
 
 
     private bool grounded = false;
@@ -63,9 +65,13 @@ public class Player : MonoBehaviour
     public void JumpInput(InputAction.CallbackContext context)
     {
         float val = context.ReadValue<float>();
-        if(grounded && val > jumpDeadzone && !jumping)
+        
+        if (val == 0)
         {
-            rb.AddForceY(jumpForce);
+            bufferedJump = false;
+        } else if(val > jumpDeadzone && !jumping && grounded)
+        {
+            bufferedJump = true;
         }
         jumpAxis = val;
     }
@@ -79,35 +85,59 @@ public class Player : MonoBehaviour
         
         noInputTimer = dashDuration;
         dashTimer = -dashDuration;
-        dashRight = horizMoveInput > 0;
+        dashRight = facingRight;
     }
 
     private void Update()
     {
+        if (bufferedJump && canInput)
+        {
+            rb.AddForceY(jumpForce);
+            bufferedJump = false;
+        }
+        
+        if (horizMoveInput < 0)
+        {
+            facingRight = false;
+        } else if (horizMoveInput > 0)
+        {
+            facingRight = true;
+        }
+        
         dashTimer += Time.deltaTime;
-        noInputTimer += Time.deltaTime;
-
+        noInputTimer -= Time.deltaTime;
         
         if (canInput)
         {
             rb.AddForceX(horizMoveInput * acceleration * Time.deltaTime * rb.mass, ForceMode2D.Impulse);
             rb.linearVelocityX = Mathf.Clamp(rb.linearVelocityX, -moveSpeed, moveSpeed);
-            rb.gravityScale = Mathf.Lerp(standardGravity, standardGravity * holdJumpGravityModifier, jumpAxis);
+
+            if (rb.linearVelocityY > 0)
+            {
+                rb.gravityScale = Mathf.Lerp(standardGravity, standardGravity * holdJumpGravityModifier, jumpAxis);
+            }
+            else
+            {
+                rb.gravityScale = standardGravity;
+            }
         }
 
         grounded = Physics2D.OverlapBox((Vector2)boxCollider.bounds.center - new Vector2(0, boxCollider.bounds.size.y * 0.5f), new Vector2(boxCollider.bounds.size.x * 0.9f, 0.1f), 0, boxCollider.includeLayers);
         
         
-        if (Mathf.Abs(horizMoveInput) < 0.01f)
+        if (Mathf.Abs(horizMoveInput) < 0.01d)
         {
             rb.AddForceX(Mathf.Min(deceleration * Time.deltaTime, Mathf.Abs(rb.linearVelocityX)) * -Mathf.Sign(rb.linearVelocityX) * rb.mass, ForceMode2D.Impulse);
         }
         
         if (dashing)
         {
-            
+            rb.linearVelocityX = dashSpeed * (dashRight ? 1 : -1);
+            canTakeDamage = false;
         }
-        
+
+
+        spriteRenderer.flipX = !facingRight;
     }
 
     void FixedUpdate()
