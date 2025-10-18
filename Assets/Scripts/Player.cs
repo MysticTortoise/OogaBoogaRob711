@@ -27,28 +27,41 @@ public class Player : MonoBehaviour
 
     [Header("Hitbox")]
     public bool canTakeDamage = true;
+    
+    [Header("Camera")]
+    [SerializeField] private float cameraAheadAmount;
+    [SerializeField] private float cameraTweenAmount;
+    [SerializeField] private float cameraYAmount;
 
     // --- internals ---
     private Rigidbody2D rb;
     private BoxCollider2D boxCollider;
     private SpriteRenderer spriteRenderer;
     private Animator animator;
+    private Transform cameraTransform;
     
+    // Private Variables
+    // --- Input Axis ---
     private float horizMoveInput;
     private float jumpAxis;
+    // Jump Variables
     private bool jumping => jumpAxis > jumpDeadzone;
-    private bool facingRight;
     private bool bufferedJump;
-
+    
+    // Move Variables
+    private bool facingRight;
+    
+    // Dash Variables
     private float dashTimer;
     private bool dashRight = true;
     private bool dashing => dashTimer < 0;
     private bool dashOnCooldown => dashTimer < dashCooldown;
 
+    // Input Variables
     private float noInputTimer;
     private bool canInput => noInputTimer <= 0;
 
-
+    // Statuses
     private bool grounded;
 
     private void Start()
@@ -57,6 +70,7 @@ public class Player : MonoBehaviour
         spriteRenderer = transform.Find("Sprite").GetComponent<SpriteRenderer>();
         boxCollider = GetComponent<BoxCollider2D>();
         animator = GetComponent<Animator>();
+        cameraTransform = transform.parent.Find("Camera");
     }
 
     public void MoveInput(InputAction.CallbackContext context)
@@ -80,7 +94,7 @@ public class Player : MonoBehaviour
 
     public void DodgeRoll()
     {
-        if (dashOnCooldown || !canInput)
+        if (dashOnCooldown || !canInput || !grounded)
         {
             return;
         }
@@ -92,12 +106,17 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
+       
+        
+        
+        // Jump Handler
         if (bufferedJump && canInput)
         {
             rb.AddForceY(jumpForce);
             bufferedJump = false;
         }
         
+        // Left / Right checker
         if (horizMoveInput < 0)
         {
             facingRight = false;
@@ -106,74 +125,43 @@ public class Player : MonoBehaviour
             facingRight = true;
         }
         
+        // Timers
         dashTimer += Time.deltaTime;
         noInputTimer -= Time.deltaTime;
         
+        // Left/Right Movement
         if (canInput)
         {
             rb.AddForceX(horizMoveInput * acceleration * Time.deltaTime * rb.mass, ForceMode2D.Impulse);
             rb.linearVelocityX = Mathf.Clamp(rb.linearVelocityX, -moveSpeed, moveSpeed);
 
-            if (rb.linearVelocityY > 0)
-            {
-                rb.gravityScale = Mathf.Lerp(standardGravity, standardGravity * holdJumpGravityModifier, jumpAxis);
-            }
-            else
-            {
-                rb.gravityScale = standardGravity;
-            }
+            rb.gravityScale = rb.linearVelocityY > 0 ? Mathf.Lerp(standardGravity, standardGravity * holdJumpGravityModifier, jumpAxis) : standardGravity;
         }
-
+    
+        // Grounded Check
         grounded = Physics2D.OverlapBox((Vector2)boxCollider.bounds.center - new Vector2(0, boxCollider.bounds.size.y * 0.5f), new Vector2(boxCollider.bounds.size.x * 0.9f, 0.1f), 0, boxCollider.includeLayers);
         
         
+        // Deceleration
         if (Mathf.Abs(horizMoveInput) < 0.01d)
         {
             rb.AddForceX(Mathf.Min(deceleration * Time.deltaTime, Mathf.Abs(rb.linearVelocityX)) * -Mathf.Sign(rb.linearVelocityX) * rb.mass, ForceMode2D.Impulse);
         }
         
+        // Dash
         if (dashing)
         {
             rb.linearVelocityX = dashSpeed * (dashRight ? 1 : -1);
             canTakeDamage = false;
         }
 
-
+        // Visuals
         spriteRenderer.flipX = !facingRight;
         animator.SetFloat("MoveSpeed", rb.linearVelocityX);
+        
+        
+        
     }
-
-    void FixedUpdate()
-    {
-        //if (isDashing) return;
-        //rb.linearVelocity = new Vector2(moveInput.x * moveSpeed, rb.linearVelocity.y);
-    }
-/*
-    private IEnumerator DashCoroutine()
-    {
-
-        isDashing = true;
-        dashOnCooldown = true;
-        canTakeDamage = false;
-
-        float dir = facingRight ? 1f : -1f;
-        rb.linearVelocity = new Vector2(dir * dashSpeed, 0f);
-
-        // Start flashing effect
-        StartCoroutine(IFrameFlash());
-
-        // dash time
-        yield return new WaitForSeconds(dashDuration);
-
-        isDashing = false;
-
-        yield return new WaitForSeconds(iFrameBuffer);
-        canTakeDamage = true;
-
-        // cooldown
-        yield return new WaitForSeconds(dashCooldown);
-        dashOnCooldown = false;
-    }*/
 
     // flash
     private IEnumerator IFrameFlash()
@@ -197,6 +185,15 @@ public class Player : MonoBehaviour
 
         //set colors back
         spriteRenderer.color = normalColor;
+    }
+
+    private void FixedUpdate()
+    {
+        // Camera
+        Vector3 goalPos = transform.position + new Vector3(cameraAheadAmount * (facingRight ? 1 : -1), cameraYAmount,-10);
+        cameraTransform.position = MysticUtil.DampVector(
+            cameraTransform.position, goalPos,
+            cameraTweenAmount, Time.deltaTime);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
