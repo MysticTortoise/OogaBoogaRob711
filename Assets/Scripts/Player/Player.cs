@@ -28,6 +28,13 @@ public class Player : MonoBehaviour
     [SerializeField] private float iFrameBuffer = 0.05f;
     [SerializeField] private float flashInterval;
 
+    [Header("Dash After Image")]
+    public GameObject afterImagePrefab;
+    public float afterImageLifetime = 0.3f;
+    public float afterImageSpawnInterval = 0.05f;
+    public Color afterImageColor = new Color(1f, 0f, 0f, 0.5f);
+    public Sprite afterImageSprite; 
+
     [Header("Stats")]
     public int health = 1000;
 
@@ -38,7 +45,13 @@ public class Player : MonoBehaviour
     [SerializeField] private float cameraAheadAmount;
     [SerializeField] private float cameraTweenAmount;
     [SerializeField] private float cameraYAmount;
+    public float normalZoom;
+    public float ZoomOut;
+    public float ZoomIn;
     
+    [Header("References")]
+    public CameraVFX cameraVFX;
+
     [Header("Stick")]
     [SerializeField] private Vector2 stickboxOffset;
     [SerializeField] private Vector2 stickboxSize;
@@ -135,6 +148,7 @@ public class Player : MonoBehaviour
         noInputTimer = dashDuration;
         dashTimer = -dashDuration;
         dashRight = facingRight;
+        StartCoroutine(SpawnAfterImages(dashDuration));
         StartCoroutine(IFrameFlash());
     }
 
@@ -222,6 +236,9 @@ public class Player : MonoBehaviour
         {
             rb.linearVelocityX = dashSpeed * (dashRight ? 1 : -1);
             canTakeDamage = false;
+            cameraVFX.SetZoom(ZoomIn, cameraComp);
+        } else {
+            cameraVFX.SetZoom(normalZoom, cameraComp);
         }
 
         // Visuals
@@ -270,8 +287,34 @@ public class Player : MonoBehaviour
         {
             health -= 100;
             if (health <= 0) { /* death */ }
+
+            // when die play: cameraVFX.StartScreenShake(.5f, 0.2f, cameraComp);
         }
         Debug.Log(health);
+    }
+    
+        private IEnumerator SpawnAfterImages(float duration)
+    {
+        float elapsed = 0f;
+        while (elapsed < duration)
+        {
+            GameObject ghost = Instantiate(afterImagePrefab, transform.position, transform.rotation);
+            SpriteRenderer ghostSR = ghost.GetComponent<SpriteRenderer>();
+
+            if (ghostSR != null)
+            {
+                // always use your chosen sprite
+                if (afterImageSprite != null)
+                    ghostSR.sprite = afterImageSprite;
+
+                ghostSR.color = afterImageColor;
+            }
+
+            Destroy(ghost, afterImageLifetime);
+
+            yield return new WaitForSeconds(afterImageSpawnInterval);
+            elapsed += afterImageSpawnInterval;
+        }
     }
 
     #if UNITY_EDITOR

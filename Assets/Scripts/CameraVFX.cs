@@ -22,6 +22,11 @@ public class CameraVFX : MonoBehaviour
         mainCamera.transform.localPosition = originalPos;
     }
 
+    public void StartScreenShake(float duration, float magnitude, Camera mainCamera)
+    {
+        StartCoroutine(ScreenShake(duration, magnitude, mainCamera));
+    }
+
     public void SetZoom(float value, Camera mainCamera)
     {
         mainCamera.orthographicSize = value;

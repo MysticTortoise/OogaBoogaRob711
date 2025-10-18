@@ -556,6 +556,7 @@ GameObject:
   - component: {fileID: 7621461181285738032}
   - component: {fileID: 6939166586695113105}
   - component: {fileID: 4915333072703282716}
+  - component: {fileID: 673941410160486994}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -676,11 +677,20 @@ MonoBehaviour:
   dashCooldown: 0.6
   iFrameBuffer: 0.05
   flashInterval: 0.09
+  afterImagePrefab: {fileID: 2192109175974210728, guid: f43a75ea7c2bc4dd6a0cce1baa79eab1, type: 3}
+  afterImageLifetime: 0.3
+  afterImageSpawnInterval: 0.05
+  afterImageColor: {r: 0, g: 0.8105297, b: 1, a: 0.5}
+  afterImageSprite: {fileID: 1750004655, guid: f24bcde49ce01462cbf0e83a585d3b02, type: 3}
   health: 1000
   canTakeDamage: 1
   cameraAheadAmount: 3
   cameraTweenAmount: 6
   cameraYAmount: 3
+  normalZoom: 25
+  ZoomOut: 30
+  ZoomIn: 22
+  cameraVFX: {fileID: 673941410160486994}
   stickboxOffset: {x: 5.59, y: -0.02}
   stickboxSize: {x: 6.03, y: 8.83}
   stickCooldown: 1
@@ -835,6 +845,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &673941410160486994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6338994427022814079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: def91211cd7984445bd414548c757792, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6736072426934796312
 GameObject:
   m_ObjectHideFlags: 0
