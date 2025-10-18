@@ -54,7 +54,7 @@ public class PlayButton : MonoBehaviour
         sceneTransitionAnimator.SetTrigger("StartTransition");
 
         yield return new WaitForSeconds(sceneTransitionAnimator.GetCurrentAnimatorClipInfo(0)[0].clip.length);
-        //TODO: load next scene here
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Level Select");
     }
 
 }
