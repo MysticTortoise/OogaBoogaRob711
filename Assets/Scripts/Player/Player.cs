@@ -56,6 +56,7 @@ public class Player : MonoBehaviour
     [Header("Stick")]
     [SerializeField] private Vector2 stickboxOffset;
     [SerializeField] private Vector2 stickboxSize;
+    [SerializeField] private float stickAttackTime;
     [SerializeField] private float stickCooldown;
     [Header("Rocks")]
     [SerializeField] private GameObject rockPrefab;
@@ -96,6 +97,7 @@ public class Player : MonoBehaviour
     // Attack Variables
     private List<ThrownRock> rocks = new List<ThrownRock>();
     private float stickCooldownTimer;
+    private float stickAttackTimer;
 
     // Statuses
     private bool grounded;
@@ -163,15 +165,8 @@ public class Player : MonoBehaviour
 
         animator.SetTrigger("StickAttack");
         stickCooldownTimer = stickCooldown;
-        var colliders = new List<Collider2D>();
-        int boxes = Physics2D.OverlapBox(boxCollider.bounds.center + (Vector3)stickboxOffset, stickboxSize, 0, new ContactFilter2D(), colliders);
-        for (int i = 0; i < boxes; i++)
-        {
-            if (colliders[i].GetComponent<HittableBase>() is HittableBase hittable)
-            {
-                hittable.Hit(HitType.Stick);
-            }
-        }
+        stickAttackTimer = stickAttackTime;
+        
     }
 
     public void ThrowRock(InputAction.CallbackContext context)
@@ -213,6 +208,21 @@ public class Player : MonoBehaviour
         dashTimer += Time.deltaTime;
         noInputTimer -= Time.deltaTime;
         stickCooldownTimer -= Time.deltaTime;
+        stickAttackTime -= Time.deltaTime;
+
+        // Stick Check
+        if (stickAttackTime > 0)
+        {
+            var colliders = new List<Collider2D>();
+            int boxes = Physics2D.OverlapBox(boxCollider.bounds.center + (Vector3)stickboxOffset, stickboxSize, 0, new ContactFilter2D(), colliders);
+            for (int i = 0; i < boxes; i++)
+            {
+                if (colliders[i].GetComponent<HittableBase>() is HittableBase hittable)
+                {
+                    hittable.Hit(HitType.Stick);
+                }
+            }
+        }
         
         // Left/Right Movement
         if (canInput)

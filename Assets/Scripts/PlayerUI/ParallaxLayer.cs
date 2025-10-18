@@ -9,8 +9,9 @@ public class ParallaxLayer : MonoBehaviour
 
     private void Start()
     {
-        material = GetComponent<Image>().material;
+        material = new Material(GetComponent<Image>().material);
         cameraTransform = FindAnyObjectByType<Camera>().transform;
+        GetComponent<Image>().material = material;
     }
 
     private void Update()
