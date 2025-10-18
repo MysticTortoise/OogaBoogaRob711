@@ -198,11 +198,12 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        // if (canTakeDamage && other.CompareTag("Enemy"))
-        // {
-        //     health -= 100;
-        //     if (health <= 0) { /* death */ }
-        // }
+        if (canTakeDamage && other.CompareTag("Enemy"))
+        {
+            health -= 100;
+            if (health <= 0) { /* death */ }
+        }
+        Debug.Log(health);
     }
 
     private void OnDrawGizmosSelected()
