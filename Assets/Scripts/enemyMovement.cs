@@ -41,7 +41,6 @@ public class enemyMovement : MonoBehaviour
             {
                 rb.linearVelocityX = velocity;
             }
-            Debug.Log(absoluteDistanceFromPlayer);
         }
     }
 }
