@@ -33,6 +33,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5367482223335734529}
+  - {fileID: 4983989330479304328}
   m_Father: {fileID: 600523688037930950}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &7102233873613644814
@@ -70,7 +71,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 15
+  orthographic size: 20.82
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -117,7 +118,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -138,6 +139,55 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+--- !u!1 &1831003505853288388
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4983989330479304328}
+  - component: {fileID: 1588054755212530952}
+  m_Layer: 0
+  m_Name: Global Volume
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4983989330479304328
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1831003505853288388}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2.333593, y: 0.13594936, z: 9.925117}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6260089507507331361}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1588054755212530952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1831003505853288388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: 3f9215ea0144899419cfbc0957140d3f, type: 2}
 --- !u!1 &1875313794872634331
 GameObject:
   m_ObjectHideFlags: 0
@@ -316,7 +366,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: 8125757742330551797, guid: f24bcde49ce01462cbf0e83a585d3b02, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -339,6 +389,7 @@ GameObject:
   - component: {fileID: 6103538848762074739}
   - component: {fileID: 7441756024070815410}
   - component: {fileID: 728814199412730521}
+  - component: {fileID: 6912567847628524766}
   m_Layer: 5
   m_Name: Clouds
   m_TagString: Untagged
@@ -394,7 +445,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: efc685bf08b916548ac51be3077d7a00, type: 3}
-  m_Type: 2
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -403,6 +454,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1.5
+--- !u!114 &6912567847628524766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4552082324839599274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09d560e674e43f14bb44527b378af39c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scrollSpeed: {x: 0.002, y: 0}
 --- !u!1 &4869432804988790123
 GameObject:
   m_ObjectHideFlags: 0
@@ -508,8 +572,8 @@ Transform:
   m_GameObject: {fileID: 6338994427022814079}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.89, z: 0}
-  m_LocalScale: {x: 0.4078, y: 0.4078, z: 0.4078}
+  m_LocalPosition: {x: 0.40424, y: 2.1725, z: 0.0000000037253}
+  m_LocalScale: {x: 1.3171058, y: 1.3171058, z: 1.3171058}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3522487214818902153}
@@ -549,7 +613,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: -0.78}
+  m_Offset: {x: -0.84013015, y: -0.59627104}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -559,7 +623,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 4.38, y: 7.93}
+  m_Size: {x: 4.1616254, y: 7.7580004}
   m_EdgeRadius: 0
 --- !u!50 &2311864708485245925
 Rigidbody2D:
@@ -600,17 +664,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 689f7eadc105c4ddab3f328dbc273124, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 9
-  acceleration: 50
-  deceleration: 40
-  jumpForce: 1700
+  moveSpeed: 30
+  acceleration: 300
+  deceleration: 200
+  jumpForce: 130
   jumpDeadzone: 0.02
-  standardGravity: 5.5
-  holdJumpGravityModifier: 0.37
-  dashSpeed: 21
-  dashDuration: 0.3
+  standardGravity: 17
+  noHoldJumpModifier: 2.5
+  dashSpeed: 90
+  dashDuration: 0.14
   dashCooldown: 0.6
   iFrameBuffer: 0.05
+  flashInterval: 0.09
   health: 1000
   canTakeDamage: 1
   cameraAheadAmount: 3
