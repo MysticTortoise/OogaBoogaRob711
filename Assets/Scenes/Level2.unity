@@ -120,6 +120,7 @@ NavMeshSettings:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 --- !u!1001 &33511418
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -181,6 +182,9 @@ PrefabInstance:
 =======
 --- !u!1 &358435047
 >>>>>>> Stashed changes
+=======
+--- !u!1 &358435047
+>>>>>>> Stashed changes
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -188,6 +192,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
   - component: {fileID: 466161140}
   - component: {fileID: 466161145}
@@ -199,20 +204,28 @@ GameObject:
   m_Name: Tilemap
   m_TagString: Untagged
 =======
+=======
+>>>>>>> Stashed changes
   - component: {fileID: 358435050}
   - component: {fileID: 358435049}
   - component: {fileID: 358435048}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 --- !u!4 &466161140
 =======
+=======
+>>>>>>> Stashed changes
 --- !u!81 &358435048
 AudioListener:
   m_ObjectHideFlags: 0
@@ -273,12 +286,16 @@ Camera:
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
 --- !u!4 &358435050
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
   m_GameObject: {fileID: 466161139}
   serializedVersion: 2
@@ -3805,6 +3822,8 @@ PrefabInstance:
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 95844a9b65bca38478ce21e845981b72, type: 3}
 =======
+=======
+>>>>>>> Stashed changes
   m_GameObject: {fileID: 358435047}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -3814,16 +3833,23 @@ PrefabInstance:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   - {fileID: 1043321781}
   - {fileID: 1379753972}
   - {fileID: 33511418}
   - {fileID: 1786868380}
+=======
+  - {fileID: 358435050}
+>>>>>>> Stashed changes
 =======
   - {fileID: 358435050}
 >>>>>>> Stashed changes
