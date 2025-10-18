@@ -1,5 +1,5 @@
 using System;
-using UnityEditor.Experimental.GraphView;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class enemyMovement : MonoBehaviour
@@ -36,10 +36,12 @@ public class enemyMovement : MonoBehaviour
             else if (distanceFromPlayer > 0)
             {
                 rb.linearVelocityX = -velocity;
+                enemy.localScale = math.abs(enemy.localScale);
             }
             else if (distanceFromPlayer < 0)
             {
                 rb.linearVelocityX = velocity;
+                enemy.localScale = new Vector3(-Math.Abs(enemy.localScale.x), enemy.localScale.y, enemy.localScale.z);
             }
         }
     }

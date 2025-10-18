@@ -1,10 +1,28 @@
 fileFormatVersion: 2
-guid: f24bcde49ce01462cbf0e83a585d3b02
+guid: efc685bf08b916548ac51be3077d7a00
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8125757742330551797
-    second: Caveman_Sprite_0
+      213: -602783346140374355
+    second: BG_Clouds_0
+  - first:
+      213: 7076355665006166833
+    second: BG_Clouds_1
+  - first:
+      213: 7121197322151693233
+    second: BG_Clouds_2
+  - first:
+      213: -5272690277750612052
+    second: BG_Clouds_3
+  - first:
+      213: 329880437454288777
+    second: BG_Clouds_4
+  - first:
+      213: -5866027309098098924
+    second: BG_Clouds_5
+  - first:
+      213: 222646877403207696
+    second: BG_Clouds_6
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +64,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 0
   alignment: 0
@@ -113,13 +131,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Caveman_Sprite_0
+      name: BG_Clouds_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 833
-        height: 1000
+        y: 745
+        width: 1920
+        height: 335
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,52 +146,140 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5fd1e725d9d74c070800000000000000
-      internalID: 8125757742330551797
+      spriteID: daa18c88dbb72a7f0800000000000000
+      internalID: -602783346140374355
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Caveman_Sprite_1
+      name: BG_Clouds_1
       rect:
         serializedVersion: 2
-        x: 833
-        y: 0
-        width: 833
-        height: 1000
+        x: 0
+        y: 672
+        width: 96
+        height: 136
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 7ec035f507f4d2145862676cdeb837f1
-      internalID: 1750004655
+      spriteID: 13304053cf3443260800000000000000
+      internalID: 7076355665006166833
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Caveman_Sprite_2
+      name: BG_Clouds_2
       rect:
         serializedVersion: 2
-        x: 1666
-        y: 0
-        width: 833
-        height: 1000
+        x: 112
+        y: 598
+        width: 425
+        height: 266
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 834409b800154db4b941dd1d33d48d8a
-      internalID: 1950495668
+      spriteID: 1bb805a1c3393d260800000000000000
+      internalID: 7121197322151693233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BG_Clouds_3
+      rect:
+        serializedVersion: 2
+        x: 971
+        y: 458
+        width: 949
+        height: 611
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cafd408d024a3d6b0800000000000000
+      internalID: -5272690277750612052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BG_Clouds_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1920
+        height: 337
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98730d49288f39400800000000000000
+      internalID: 329880437454288777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BG_Clouds_5
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 256
+        width: 856
+        height: 441
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41f977eed3fa79ea0800000000000000
+      internalID: -5866027309098098924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BG_Clouds_6
+      rect:
+        serializedVersion: 2
+        x: 955
+        y: 301
+        width: 385
+        height: 199
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 018d7f5c720071300800000000000000
+      internalID: 222646877403207696
       vertices: []
       indices: 
       edges: []
@@ -182,7 +288,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 61bfb0102e13aa34dafd5d7c914be8a4
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -192,9 +298,13 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Caveman_Sprite_0: 8125757742330551797
-      Caveman_Sprite_1: 1750004655
-      Caveman_Sprite_2: 1950495668
+      BG_Clouds_0: -602783346140374355
+      BG_Clouds_1: 7076355665006166833
+      BG_Clouds_2: 7121197322151693233
+      BG_Clouds_3: -5272690277750612052
+      BG_Clouds_4: 329880437454288777
+      BG_Clouds_5: -5866027309098098924
+      BG_Clouds_6: 222646877403207696
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
