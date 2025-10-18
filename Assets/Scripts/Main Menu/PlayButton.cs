@@ -39,11 +39,6 @@ public class PlayButton : MonoBehaviour
         }
     }
 
-    public void StartSceneTransition()
-    {
-        
-    }
-
     IEnumerator PlayAnimationSequence()
     {
         var sequence = DOTween.Sequence();
