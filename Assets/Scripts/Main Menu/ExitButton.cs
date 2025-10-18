@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using DG.Tweening;
 using System.Collections;
 using TMPro;
+using Unity.VisualScripting;
 
 public class ExitButton : MonoBehaviour
 {
@@ -14,8 +15,11 @@ public class ExitButton : MonoBehaviour
     [SerializeField] Button confirmButton;
     [SerializeField] TextMeshProUGUI confirmText;
 
+    [SerializeField] Image deltarune;
+    [SerializeField] AudioSource deltaruneAudio;
 
-    
+
+
     public void OnExitButtonPressed()
     {
         if (confirmExit == false && isAnimating == false)
@@ -26,9 +30,7 @@ public class ExitButton : MonoBehaviour
         else if (confirmExit == true && isAnimating == false)
         {
             Debug.Log("goodbye!");
-
-
-            Application.Quit();
+            StartCoroutine(ExitGame());
         }
     }
 
@@ -59,4 +61,18 @@ public class ExitButton : MonoBehaviour
         exitButtonBackground.SetActive(false);
     }
 
+    IEnumerator ExitGame()
+    {
+        StopCoroutine(ExpandAnimation());
+
+        deltarune.gameObject.SetActive(true);
+        deltaruneAudio.Play();
+        yield return new WaitForSeconds(0.5f);
+
+        #if UNITY_EDITOR
+        Debug.Break();
+        #endif
+
+        Application.Quit();
+    }
 }
