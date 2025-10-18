@@ -150,6 +150,7 @@ public class Player : MonoBehaviour
         dashRight = facingRight;
         StartCoroutine(SpawnAfterImages(dashDuration));
         StartCoroutine(IFrameFlash());
+        cameraVFX.PunchZoom(ZoomIn);
     }
 
     public void Strike()
@@ -236,9 +237,6 @@ public class Player : MonoBehaviour
         {
             rb.linearVelocityX = dashSpeed * (dashRight ? 1 : -1);
             canTakeDamage = false;
-            cameraVFX.SetZoom(ZoomIn, cameraComp);
-        } else {
-            cameraVFX.SetZoom(normalZoom, cameraComp);
         }
 
         // Visuals

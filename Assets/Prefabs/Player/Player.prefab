@@ -689,7 +689,7 @@ MonoBehaviour:
   cameraYAmount: 3
   normalZoom: 25
   ZoomOut: 30
-  ZoomIn: 22
+  ZoomIn: 18
   cameraVFX: {fileID: 673941410160486994}
   stickboxOffset: {x: 5.59, y: -0.02}
   stickboxSize: {x: 6.03, y: 8.83}
@@ -857,6 +857,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: def91211cd7984445bd414548c757792, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  zoomLerpSpeed: 4
 --- !u!1 &6736072426934796312
 GameObject:
   m_ObjectHideFlags: 0

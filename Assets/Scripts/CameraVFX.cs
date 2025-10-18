@@ -3,7 +3,23 @@ using System.Collections;
 
 public class CameraVFX : MonoBehaviour
 {
-    public IEnumerator ScreenShake(float shakeDuration, float shakeMagnitude, Camera mainCamera)
+    private float goalZoom;
+    private Camera mainCamera;
+
+    [SerializeField] private float zoomLerpSpeed = 1;
+
+    private void Start()
+    {
+        mainCamera = FindAnyObjectByType<Camera>();
+        SetZoom(mainCamera.orthographicSize);
+    }
+
+    private void Update()
+    {
+        mainCamera.orthographicSize =
+            MysticUtil.Damp(mainCamera.orthographicSize, goalZoom, zoomLerpSpeed, Time.deltaTime);
+    }
+    public IEnumerator ScreenShake(float shakeDuration, float shakeMagnitude)
     {
         Vector3 originalPos = mainCamera.transform.localPosition;
         float elapsed = 0f;
@@ -22,12 +38,18 @@ public class CameraVFX : MonoBehaviour
         mainCamera.transform.localPosition = originalPos;
     }
 
-    public void StartScreenShake(float duration, float magnitude, Camera mainCamera)
+    public void StartScreenShake(float duration, float magnitude)
     {
-        StartCoroutine(ScreenShake(duration, magnitude, mainCamera));
+        StartCoroutine(ScreenShake(duration, magnitude));
     }
 
-    public void SetZoom(float value, Camera mainCamera)
+    public void SetZoom(float value)
+    {
+        mainCamera.orthographicSize = value;
+        goalZoom = value;
+    }
+
+    public void PunchZoom(float value)
     {
         mainCamera.orthographicSize = value;
     }
