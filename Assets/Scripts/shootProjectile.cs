@@ -5,49 +5,56 @@ using UnityEngine;
 
 public class shootProjectile : MonoBehaviour
 {
-    private Transform projectile;
-    private Transform enemy;
-    private Transform player;
-    private Rigidbody2D rb;
+    public Transform projectile;
+    public Transform enemy;
+    public Transform player;
+    public Rigidbody2D rb;
     private float timer;
     public float speed;
+    private Boolean runUpdate = false;
 
-    void Start()
+    public void Initialize(Transform enemyTransform)
     {
+        Debug.Log("Script is running");
+        enemy = enemyTransform;
         projectile = GetComponent<Transform>();
-        enemy = FindAnyObjectByType<enemyMovement>().transform;
         player = FindAnyObjectByType<Player>().transform;
         rb = GetComponent<Rigidbody2D>();
+        runUpdate = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        timer += Time.deltaTime;
-        if (timer <= 3)
+        if (runUpdate)
         {
-            projectile.localPosition = new Vector3(0, 0, 0);
-        }
-
-        if (timer > 3)
-        {
-            if (timer < 3.1)
+            timer += Time.deltaTime;
+            if (timer <= 3)
             {
-                if (player.position.x > enemy.position.x)
-                {
-                    speed = -Math.Abs(speed);
-                }
-                if (player.position.x < enemy.position.x)
-                {
-                    speed = Math.Abs(speed);
-                }
+                projectile.position = enemy.position;
+                rb.linearVelocityX = 0;
             }
-            rb.linearVelocityX = speed;
 
-        }
-        if (timer >= 5)
-        {
-            timer = 0;
+            if (timer > 3)
+            {
+                if (timer < 3.05)
+                {
+                    if (player.position.x > enemy.position.x)
+                    {
+                        speed = Math.Abs(speed);
+                    }
+                    if (player.position.x < enemy.position.x)
+                    {
+                        speed = -Math.Abs(speed);
+                    }
+                }
+                rb.linearVelocityX = speed;
+
+            }
+            if (timer >= 5)
+            {
+                timer = 0;
+            }
         }
     }
     private void OnTriggerEnter2D(Collider2D collider)

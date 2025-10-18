@@ -13,8 +13,9 @@ public class enemyMovement : MonoBehaviour
     private float distanceFromPlayer;
     private float absoluteDistanceFromPlayer;
 
-    
-    
+
+
+
 
     void Start()
     {
