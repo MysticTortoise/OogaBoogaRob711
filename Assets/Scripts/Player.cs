@@ -1,16 +1,20 @@
+using System;
 using UnityEngine;
 using System.Collections;
+using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
     [Header("Movement")]
-    public float moveSpeed = 5f;
+    [SerializeField] private float moveSpeed = 5f;
+    [SerializeField] private float acceleration;
+    [SerializeField] private float deceleration;
 
     [Header("Jump")]
-    public float jumpForce = 12f;
-    public Transform groundCheck;
-    public float groundCheckRadius = 0.15f;
-    public LayerMask groundLayer;
+    [SerializeField] private float jumpForce = 12f;
+    [SerializeField] [Range(0, 1)] private float jumpDeadzone = 0.02f;
+    [SerializeField] private float standardGravity = 3;
+    [SerializeField] private float holdJumpGravityModifier = 1;
 
     [Header("Dash")]
     public float dashSpeed = 18f;
@@ -26,62 +30,95 @@ public class Player : MonoBehaviour
 
     // --- internals ---
     private Rigidbody2D rb;
-    private SpriteRenderer spriteRenderer;          // <-- NEW
-    private Vector2 moveInput;
-    private bool isGrounded;
-    private bool facingRight = true;
-    private bool isDashing = false;
-    private bool dashOnCooldown = false;
+    private BoxCollider2D boxCollider;
+    private SpriteRenderer spriteRenderer;
+    
+    private float horizMoveInput;
+    private float jumpAxis;
+    private bool jumping => jumpAxis > jumpDeadzone;
 
-    void Awake()
+    private float dashTimer = 0;
+    private bool dashRight = true;
+    private bool dashing => dashTimer < 0;
+    private bool dashOnCooldown => dashTimer < dashCooldown;
+
+    private float noInputTimer = 0;
+    private bool canInput => noInputTimer > 0;
+
+
+    private bool grounded = false;
+
+    private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        spriteRenderer = GetComponent<SpriteRenderer>();  // <-- NEW: get the sprite renderer
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        boxCollider = GetComponent<BoxCollider2D>();
     }
 
-    public void MoveInput(float value)
+    public void MoveInput(InputAction.CallbackContext context)
     {
+        horizMoveInput = context.ReadValue<float>();
+    }
+
+    public void JumpInput(InputAction.CallbackContext context)
+    {
+        float val = context.ReadValue<float>();
+        if(grounded && val > jumpDeadzone && !jumping)
+        {
+            rb.AddForceY(jumpForce);
+        }
+        jumpAxis = val;
+    }
+
+    public void DodgeRoll()
+    {
+        if (dashOnCooldown || !canInput)
+        {
+            return;
+        }
         
+        noInputTimer = dashDuration;
+        dashTimer = -dashDuration;
+        dashRight = horizMoveInput > 0;
     }
 
-    void Update()
+    private void Update()
     {
-        float moveX = Input.GetAxisRaw("Horizontal");
-        moveInput = new Vector2(moveX, 0f).normalized;
+        dashTimer += Time.deltaTime;
+        noInputTimer += Time.deltaTime;
 
-        if (moveX < 0)
+        
+        if (canInput)
         {
-            transform.rotation = Quaternion.Euler(0f, 180f, 0f);
-            facingRight = false;
-        }
-        else if (moveX > 0)
-        {
-            transform.rotation = Quaternion.Euler(0f, 0f, 0f);
-            facingRight = true;
+            rb.AddForceX(horizMoveInput * acceleration * Time.deltaTime * rb.mass, ForceMode2D.Impulse);
+            rb.linearVelocityX = Mathf.Clamp(rb.linearVelocityX, -moveSpeed, moveSpeed);
+            rb.gravityScale = Mathf.Lerp(standardGravity, standardGravity * holdJumpGravityModifier, jumpAxis);
         }
 
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
-
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded && !isDashing)
+        grounded = Physics2D.OverlapBox((Vector2)boxCollider.bounds.center - new Vector2(0, boxCollider.bounds.size.y * 0.5f), new Vector2(boxCollider.bounds.size.x * 0.9f, 0.1f), 0, boxCollider.includeLayers);
+        
+        
+        if (Mathf.Abs(horizMoveInput) < 0.01f)
         {
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, 0f);
-            rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            rb.AddForceX(Mathf.Min(deceleration * Time.deltaTime, Mathf.Abs(rb.linearVelocityX)) * -Mathf.Sign(rb.linearVelocityX) * rb.mass, ForceMode2D.Impulse);
         }
-
-        if (Input.GetKeyDown(KeyCode.LeftShift) && !isDashing && !dashOnCooldown)
+        
+        if (dashing)
         {
-            StartCoroutine(DashCoroutine());
+            
         }
+        
     }
 
     void FixedUpdate()
     {
-        if (isDashing) return;
-        rb.linearVelocity = new Vector2(moveInput.x * moveSpeed, rb.linearVelocity.y);
+        //if (isDashing) return;
+        //rb.linearVelocity = new Vector2(moveInput.x * moveSpeed, rb.linearVelocity.y);
     }
-
+/*
     private IEnumerator DashCoroutine()
     {
+
         isDashing = true;
         dashOnCooldown = true;
         canTakeDamage = false;
@@ -103,7 +140,7 @@ public class Player : MonoBehaviour
         // cooldown
         yield return new WaitForSeconds(dashCooldown);
         dashOnCooldown = false;
-    }
+    }*/
 
     // flash
     private IEnumerator IFrameFlash()
@@ -136,5 +173,15 @@ public class Player : MonoBehaviour
         //     health -= 100;
         //     if (health <= 0) { /* death */ }
         // }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        if (boxCollider == null)
+        {
+            boxCollider = GetComponent<BoxCollider2D>();
+        }
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireCube((Vector2)boxCollider.bounds.center - new Vector2(0, boxCollider.bounds.size.y * 0.5f), new Vector2(boxCollider.bounds.size.x * 0.9f, 0.1f));
     }
 }
