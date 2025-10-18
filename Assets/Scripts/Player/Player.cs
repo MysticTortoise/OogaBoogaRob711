@@ -214,7 +214,7 @@ public class Player : MonoBehaviour
         if (stickAttackTimer > 0)
         {
             var colliders = new List<Collider2D>();
-            int boxes = Physics2D.OverlapBox(boxCollider.bounds.center + (Vector3)stickboxOffset, stickboxSize, 0, new ContactFilter2D(), colliders);
+            int boxes = Physics2D.OverlapBox(boxCollider.bounds.center + new Vector3(stickboxOffset.x * (facingRight? 1 : -1), stickboxOffset.y), stickboxSize, 0, new ContactFilter2D(), colliders);
             for (int i = 0; i < boxes; i++)
             {
                 if (colliders[i].GetComponent<HittableBase>() is HittableBase hittable)
