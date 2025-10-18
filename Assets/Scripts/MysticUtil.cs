@@ -16,4 +16,12 @@ public class MysticUtil
             Damp(a.z, b.z, lambda, dt)
         );
     }
+
+    public static Bounds GetCameraWorldBounds(Camera camera)
+    {
+        Vector2 bottomLeft = camera.ViewportToWorldPoint(new Vector3(0,0));
+        Vector2 topRight = camera.ViewportToWorldPoint(new Vector3(1,1));
+        Vector2 size = topRight - bottomLeft;
+        return new Bounds( size * 0.5f + bottomLeft, size);
+    }
 }
