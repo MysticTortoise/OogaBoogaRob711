@@ -208,10 +208,10 @@ public class Player : MonoBehaviour
         dashTimer += Time.deltaTime;
         noInputTimer -= Time.deltaTime;
         stickCooldownTimer -= Time.deltaTime;
-        stickAttackTime -= Time.deltaTime;
+        stickAttackTimer -= Time.deltaTime;
 
         // Stick Check
-        if (stickAttackTime > 0)
+        if (stickAttackTimer > 0)
         {
             var colliders = new List<Collider2D>();
             int boxes = Physics2D.OverlapBox(boxCollider.bounds.center + (Vector3)stickboxOffset, stickboxSize, 0, new ContactFilter2D(), colliders);
