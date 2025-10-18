@@ -339,6 +339,7 @@ GameObject:
   - component: {fileID: 6103538848762074739}
   - component: {fileID: 7441756024070815410}
   - component: {fileID: 728814199412730521}
+  - component: {fileID: 6912567847628524766}
   m_Layer: 5
   m_Name: Clouds
   m_TagString: Untagged
@@ -403,6 +404,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1.5
+--- !u!114 &6912567847628524766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4552082324839599274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09d560e674e43f14bb44527b378af39c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scrollSpeed: {x: 0.002, y: 0}
 --- !u!1 &4869432804988790123
 GameObject:
   m_ObjectHideFlags: 0
@@ -600,17 +614,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 689f7eadc105c4ddab3f328dbc273124, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 9
-  acceleration: 50
-  deceleration: 40
-  jumpForce: 1700
+  moveSpeed: 30
+  acceleration: 300
+  deceleration: 200
+  jumpForce: 130
   jumpDeadzone: 0.02
-  standardGravity: 5.5
-  holdJumpGravityModifier: 0.37
-  dashSpeed: 21
-  dashDuration: 0.3
+  standardGravity: 17
+  noHoldJumpModifier: 2.5
+  dashSpeed: 90
+  dashDuration: 0.14
   dashCooldown: 0.6
   iFrameBuffer: 0.05
+  flashInterval: 0.09
   health: 1000
   canTakeDamage: 1
   cameraAheadAmount: 3
