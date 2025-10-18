@@ -11,5 +11,6 @@ public class BreakableGlass : HittableBase
         broken = true;
         GetComponent<SpriteRenderer>().sprite = brokenSprite;
         GetComponent<Collider2D>().enabled = false;
+        transform.GetChild(0).gameObject.SetActive(true);
     }
 }

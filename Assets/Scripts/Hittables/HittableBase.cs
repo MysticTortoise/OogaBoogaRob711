@@ -4,7 +4,7 @@ using UnityEngine;
 public enum HitType
 {
     Stick = 100,
-    Rock = 50,
+    Rock = 20,
     Dash = 0,
 }
 public class HittableBase : MonoBehaviour
