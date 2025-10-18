@@ -2,7 +2,7 @@ using System;
 using Unity.Mathematics;
 using UnityEngine;
 
-public class enemyMovement : MonoBehaviour
+public class EnemyMovement : HittableBase
 {
     public float startMovingThreshold;
     public float stopMovingThreshold;
@@ -13,8 +13,7 @@ public class enemyMovement : MonoBehaviour
     private float distanceFromPlayer;
     private float absoluteDistanceFromPlayer;
 
-
-
+    [SerializeField] private int health = 300;
 
 
     void Start()
@@ -44,6 +43,21 @@ public class enemyMovement : MonoBehaviour
                 rb.linearVelocityX = velocity;
                 enemy.localScale = new Vector3(-Math.Abs(enemy.localScale.x), enemy.localScale.y, enemy.localScale.z);
             }
+        }
+    }
+
+    public override void Hit(HitType type)
+    {
+        if (type == HitType.Dash)
+        {
+            return;
+        }
+
+        health -= (int)type;
+
+        if (health <= 0)
+        {
+            Destroy(gameObject);
         }
     }
 }
