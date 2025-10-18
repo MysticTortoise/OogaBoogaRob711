@@ -8,6 +8,8 @@ public class PlayButton : MonoBehaviour
 {
     [SerializeField] Button playButton;
     [SerializeField] TextMeshProUGUI playButtonText;
+    [SerializeField] Animator playButtonAnimator;
+    [SerializeField] Animator sceneTransitionAnimator;
 
     bool isClicked = false;
     
@@ -15,6 +17,7 @@ public class PlayButton : MonoBehaviour
     {
         if(isClicked) 
             return;
+
         playButton.transform.DOScale(1.1f, 0.2f).SetEase(Ease.OutBack);
     }
 
@@ -22,6 +25,7 @@ public class PlayButton : MonoBehaviour
     {
         if(isClicked) 
             return;
+
         playButton.transform.DOScale(1f, 0.2f).SetEase(Ease.OutBack);
     }
 
@@ -32,18 +36,30 @@ public class PlayButton : MonoBehaviour
             isClicked = true;
 
             StartCoroutine(PlayAnimationSequence());
-
-            //isClicked = false;
         }
+    }
+
+    public void StartSceneTransition()
+    {
+        
     }
 
     IEnumerator PlayAnimationSequence()
     {
         var sequence = DOTween.Sequence();
 
-        sequence.Append(playButton.transform.DOScale(1f, 0.3f)).SetEase(Ease.OutExpo);
-        sequence.Append(playButton.transform.DOScale(1.1f, 0.2f)).SetEase(Ease.OutExpo);
+        sequence.Append(playButton.transform.DOScale(1.5f, 0.8f)).SetEase(Ease.OutExpo);
+        sequence.Join(playButton.image.rectTransform.DORotate(new Vector3(0, 0, 360), 0.8f, RotateMode.FastBeyond360).SetEase(Ease.OutQuart));
+        sequence.Append(playButton.transform.DOScale(1, 0.2f)).SetEase(Ease.OutCubic);
 
-        yield return null;
+        yield return sequence.WaitForCompletion();
+        playButtonAnimator.SetTrigger("PlayButtonCommence");
+
+        yield return new WaitForSeconds(.2f);
+        sceneTransitionAnimator.SetTrigger("StartTransition");
+
+        yield return new WaitForSeconds(sceneTransitionAnimator.GetCurrentAnimatorClipInfo(0)[0].clip.length);
+        //TODO: load next scene here
     }
+
 }
