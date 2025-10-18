@@ -15,6 +15,7 @@ public class ParallaxLayer : MonoBehaviour
 
     private void Update()
     {
+        material.SetVector("_UVScale", new Vector2((float)Screen.width / Screen.height / (16f / 9f), 1));
         material.SetVector("_UVOffset", cameraTransform.position * scrollSpeed);
     }
 }
