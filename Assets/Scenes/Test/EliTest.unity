@@ -1180,10 +1180,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 6912567847628524766, guid: 1662930220ad29245b4c22d3000a076a, type: 3}
-      propertyPath: scrollSpeed.x
-      value: 0.2
-      objectReference: {fileID: 0}
     - target: {fileID: 7621461181285738032, guid: 1662930220ad29245b4c22d3000a076a, type: 3}
       propertyPath: groundCheck
       value: 
