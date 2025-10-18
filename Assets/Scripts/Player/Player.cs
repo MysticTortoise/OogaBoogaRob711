@@ -39,10 +39,11 @@ public class Player : MonoBehaviour
     [SerializeField] private float cameraTweenAmount;
     [SerializeField] private float cameraYAmount;
     
-    [Header("Attacks")]
+    [Header("Stick")]
     [SerializeField] private Vector2 stickboxOffset;
     [SerializeField] private Vector2 stickboxSize;
-
+    [SerializeField] private float stickCooldown;
+    [Header("Rocks")]
     [SerializeField] private GameObject rockPrefab;
     [SerializeField] private int maxRocks;
     [SerializeField] private float throwSpeed;
@@ -80,6 +81,7 @@ public class Player : MonoBehaviour
     
     // Attack Variables
     private List<ThrownRock> rocks = new List<ThrownRock>();
+    private float stickCooldownTimer;
 
     // Statuses
     private bool grounded;
@@ -138,6 +140,13 @@ public class Player : MonoBehaviour
 
     public void Strike()
     {
+        if (stickCooldownTimer > 0)
+        {
+            return;
+        }
+
+        animator.SetTrigger("StickAttack");
+        stickCooldownTimer = stickCooldown;
         var colliders = new List<Collider2D>();
         int boxes = Physics2D.OverlapBox(boxCollider.bounds.center + (Vector3)stickboxOffset, stickboxSize, 0, new ContactFilter2D(), colliders);
         for (int i = 0; i < boxes; i++)
@@ -168,9 +177,6 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-       
-        
-        
         // Jump Handler
         if (bufferedJump && canInput)
         {
@@ -190,6 +196,7 @@ public class Player : MonoBehaviour
         // Timers
         dashTimer += Time.deltaTime;
         noInputTimer -= Time.deltaTime;
+        stickCooldownTimer -= Time.deltaTime;
         
         // Left/Right Movement
         if (canInput)
@@ -220,7 +227,7 @@ public class Player : MonoBehaviour
         // Visuals
         spriteRenderer.flipX = !facingRight;
         animator.SetFloat("MoveSpeed", rb.linearVelocityX);
-        
+        animator.SetBool("InAir", !grounded);
         
         
     }

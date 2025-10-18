@@ -683,6 +683,7 @@ MonoBehaviour:
   cameraYAmount: 3
   stickboxOffset: {x: 5.59, y: -0.02}
   stickboxSize: {x: 6.03, y: 8.83}
+  stickCooldown: 1
   rockPrefab: {fileID: 2724678614697140507, guid: ec9d17e656af3bc4490578cc5726c85b, type: 3}
   maxRocks: 3
   throwSpeed: 150
