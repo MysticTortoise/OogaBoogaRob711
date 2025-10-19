@@ -18,6 +18,16 @@ public class EnemyMovement : HittableBase
     private bool cooldown = false;
     private float currentTime;
 
+        [Header("Hit Reaction")]
+            public float knockbackForce = 8f;
+            public float knockbackUp = 2f;
+            public float flashTime = 0.2f;
+            public GameObject deathParticle;
+            private SpriteRenderer sr;
+            private Color baseColor;
+            private bool stunned;
+
+
     [SerializeField] private int health = 300;
 
 
@@ -26,10 +36,22 @@ public class EnemyMovement : HittableBase
         rb = GetComponent<Rigidbody2D>();
         enemy = GetComponent<Transform>();
         player = FindAnyObjectByType<Player>().transform;
+        sr = GetComponent<SpriteRenderer>();
+    if (sr == null)
+    {
+        var child = transform.Find("Sprite");
+        if (child != null)
+            sr = child.GetComponent<SpriteRenderer>();
+    }
+if (sr != null)
+    baseColor = sr.color;
+
     }
     // Update is called once per frame
     void Update()
     {
+        if (stunned) return;
+        
         timer += Time.deltaTime;
         if (cooldown)
         {
@@ -73,11 +95,42 @@ public class EnemyMovement : HittableBase
 
             if (health <= 0)
             {
+                Instantiate(deathParticle, transform.position, Quaternion.identity);
+
                 Destroy(gameObject);
+            } else 
+            {
+                StartCoroutine(HitFeedback());
             }
             cooldown = true;
             currentTime = timer;
         }
+    }
+
+     private System.Collections.IEnumerator HitFeedback()
+    {
+        stunned = true;
+
+        // Direction away from player
+        float dir = 1f;
+        if (player != null)
+            dir = Mathf.Sign(transform.position.x - player.position.x);
+        if (dir == 0) dir = 1f;
+
+        // Apply knockback
+        rb.linearVelocity = Vector2.zero;
+        rb.AddForce(new Vector2(dir * knockbackForce, knockbackUp), ForceMode2D.Impulse);
+
+        // Flash red
+        if (sr != null)
+            sr.color = Color.red;
+
+        yield return new WaitForSeconds(flashTime);
+
+        if (sr != null)
+            sr.color = baseColor;
+
+        stunned = false;
     }
 
     private void OnDrawGizmosSelected()
