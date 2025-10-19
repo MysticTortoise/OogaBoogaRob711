@@ -13,17 +13,21 @@ public class ItemDisplaySingle : MonoBehaviour
 
     public void StartItemCooldown(float cooldownTime)
     {
-        DOTween.Kill(cooldownImage.rectTransform);
-        DOTween.Kill(cooldownImage.sprite);
-        DOTween.Kill(cooldownCompleteEffect.rectTransform);
-        DOTween.Kill(cooldownCompleteEffect);
-
         if (cooldownRoutine != null)
             StopCoroutine(cooldownRoutine);
 
+        DOTween.Kill(cooldownImage.rectTransform);
+        DOTween.Kill(cooldownImage.sprite);
+        DOTween.Kill(cooldownImage);
+        DOTween.Kill(cooldownCompleteEffect.rectTransform.localScale);
+        DOTween.Kill(cooldownCompleteEffect.rectTransform);
+        DOTween.Kill(cooldownCompleteEffect.sprite);
+        DOTween.Kill(cooldownCompleteEffect);
+
         cooldownCompleteEffect.DOFade(0.7f, 0);
         cooldownImage.DOFade(0.7f, 0);
-        cooldownCompleteEffect.rectTransform.DOScale(1, 0);
+        cooldownCompleteEffect.rectTransform.localScale = new Vector3(1, 1);
+        cooldownCompleteEffect.rectTransform.DOScale(new Vector3(1, 1), 0);
         cooldownCompleteEffect.gameObject.SetActive(false);
         cooldownImage.gameObject.SetActive(true);
         cooldownImage.DOFillAmount(1, 0);
@@ -33,11 +37,6 @@ public class ItemDisplaySingle : MonoBehaviour
 
     IEnumerator PlayCooldownEffect(float cooldownTime)
     {
-        //var sequence1 = DOTween.Sequence();
-        //sequence1.Append(cooldownImage.DOFillAmount(0, cooldownTime).SetEase(Ease.Linear));
-        //sequence1.Join(cooldownImage.DOFade(0.15f, cooldownTime).SetEase(Ease.Linear));
-        //yield return sequence1.WaitForCompletion();
-
         yield return DOTween.Sequence()
         .Append(cooldownImage.DOFillAmount(0, cooldownTime).SetEase(Ease.Linear))
         .Join(cooldownImage.DOFade(0.15f, cooldownTime).SetEase(Ease.Linear))
@@ -46,14 +45,9 @@ public class ItemDisplaySingle : MonoBehaviour
         cooldownImage.gameObject.SetActive(false);
         cooldownCompleteEffect.gameObject.SetActive(true);
 
-        //var sequence2 = DOTween.Sequence();
-        //sequence2.Append(cooldownCompleteEffect.DOFade(0, 0.2f).SetEase(Ease.Linear));
-        //sequence2.Join(cooldownCompleteEffect.rectTransform.DOScale(1.5f, 0.2f).SetEase(Ease.OutQuad));
-        //yield return sequence2.WaitForCompletion();
-
         yield return DOTween.Sequence()
         .Append(cooldownCompleteEffect.DOFade(0, 0.2f).SetEase(Ease.Linear))
-        .Join(cooldownCompleteEffect.rectTransform.DOScale(1.5f, 0.2f).SetEase(Ease.OutQuad))
+        .Join(cooldownCompleteEffect.rectTransform.DOScale(new Vector3(1.5f, 1.5f), 0.2f).SetEase(Ease.OutQuad))
         .WaitForCompletion();
 
         cooldownCompleteEffect.gameObject.SetActive(false);
