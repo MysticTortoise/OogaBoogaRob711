@@ -1,22 +1,10 @@
 fileFormatVersion: 2
-guid: 50b68bc36fa04294ea4ec2e6b0e7f88b
+guid: 44e7f9599f4ce3342b7648d9044c7f39
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3979813903396985124
-    second: Police_Gun_0
-  - first:
-      213: -5056050244646773079
-    second: Police_Gun_1
-  - first:
-      213: 3530171562641600672
-    second: Police_Gun_2
-  - first:
-      213: 9180601667767645969
-    second: Police_Gun_3
-  - first:
-      213: -7130648556947947756
-    second: Police_Gun_4
+      213: -6749763846947993699
+    second: choppa_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -125,111 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Police_Gun_0
+      name: choppa_0
       rect:
         serializedVersion: 2
-        x: 10
-        y: 10
-        width: 280
-        height: 964
+        x: 0
+        y: 0
+        width: 607
+        height: 345
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4295320c8a32b3730800000000000000
-      internalID: 3979813903396985124
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Police_Gun_1
-      rect:
-        serializedVersion: 2
-        x: 361
-        y: 18
-        width: 357
-        height: 952
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 9ae5d41371d45d9b0800000000000000
-      internalID: -5056050244646773079
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Police_Gun_2
-      rect:
-        serializedVersion: 2
-        x: 766
-        y: 22
-        width: 383
-        height: 950
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0a030732550bdf030800000000000000
-      internalID: 3530171562641600672
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Police_Gun_3
-      rect:
-        serializedVersion: 2
-        x: 1238
-        y: 16
-        width: 448
-        height: 914
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 11736af639c086f70800000000000000
-      internalID: 9180601667767645969
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Police_Gun_4
-      rect:
-        serializedVersion: 2
-        x: 1766
-        y: 744
-        width: 54
-        height: 31
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 41f37f0dae8da0d90800000000000000
-      internalID: -7130648556947947756
+      spriteID: d9704e00b850452a0800000000000000
+      internalID: -6749763846947993699
       vertices: []
       indices: 
       edges: []
@@ -238,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 7eba9c1449a29434ba5e950ff57c0c6a
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -248,11 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Police_Gun_0: 3979813903396985124
-      Police_Gun_1: -5056050244646773079
-      Police_Gun_2: 3530171562641600672
-      Police_Gun_3: 9180601667767645969
-      Police_Gun_4: -7130648556947947756
+      choppa_0: -6749763846947993699
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
