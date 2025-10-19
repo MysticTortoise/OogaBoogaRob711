@@ -5,7 +5,7 @@ public class spawnProjectile : MonoBehaviour
 {
     public GameObject projectilePrefab;
     private Transform spawner;
-    public GameObject projectile;
+    private GameObject projectile;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

@@ -31,7 +31,7 @@ public class shootProjectile : MonoBehaviour
             timer += Time.deltaTime;
             if (timer <= 3)
             {
-                projectile.position = enemy.position;
+                projectile.position = new Vector3 (enemy.position.x, enemy.position.y + 2.871128f, enemy.position.z);
                 rb.linearVelocityX = 0;
             }
 
