@@ -1,16 +1,22 @@
 fileFormatVersion: 2
-guid: 11d68ab7a1797454eafd18147b58b4f3
+guid: 5f9f18bbdd3f6db49b64d0851c82943f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4019669040484998881
-    second: Caveman_Throw_0
+      213: 2909666596027514770
+    second: Police_Baton_0
   - first:
-      213: 6471380897110721304
-    second: Caveman_Throw_1
+      213: 2799512767113698122
+    second: Police_Baton_1
   - first:
-      213: -3734575192721493528
-    second: Caveman_Throw_2
+      213: -8628004979475079587
+    second: Police_Baton_2
+  - first:
+      213: -2286187147492634979
+    second: Police_Baton_3
+  - first:
+      213: 941144680255024346
+    second: Police_Baton_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -102,84 +108,115 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Caveman_Throw_0
+      name: Police_Baton_0
       rect:
         serializedVersion: 2
-        x: 16
-        y: 13
-        width: 784
-        height: 941
-      alignment: 9
-      pivot: {x: 0.60045105, y: 0.4936322}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 1ee5eb8f1bbb8c730800000000000000
-      internalID: 4019669040484998881
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Caveman_Throw_1
-      rect:
-        serializedVersion: 2
-        x: 910
-        y: 22
-        width: 678
-        height: 960
-      alignment: 9
-      pivot: {x: 0.49747488, y: 0.47235778}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 813888a93a6fec950800000000000000
-      internalID: 6471380897110721304
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ROCKE
-      rect:
-        serializedVersion: 2
-        x: 1691
-        y: 504
-        width: 189
-        height: 162
+        x: 3
+        y: 10
+        width: 287
+        height: 964
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8e179da16af1c2cc0800000000000000
-      internalID: -3734575192721493528
+      spriteID: 29f3a0f5a56316820800000000000000
+      internalID: 2909666596027514770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Police_Baton_1
+      rect:
+        serializedVersion: 2
+        x: 335
+        y: 18
+        width: 383
+        height: 952
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4b9bfb770ed9d620800000000000000
+      internalID: 2799512767113698122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Police_Baton_2
+      rect:
+        serializedVersion: 2
+        x: 766
+        y: 22
+        width: 383
+        height: 950
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5e161e2f2b234880800000000000000
+      internalID: -8628004979475079587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Police_Baton_3
+      rect:
+        serializedVersion: 2
+        x: 1153
+        y: 2
+        width: 483
+        height: 1018
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9e43afe6e4d540e0800000000000000
+      internalID: -2286187147492634979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Police_Baton_4
+      rect:
+        serializedVersion: 2
+        x: 1683
+        y: 7
+        width: 512
+        height: 875
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: adc69dca91e9f0d00800000000000000
+      internalID: 941144680255024346
       vertices: []
       indices: 
       edges: []
@@ -188,7 +225,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 4d28423b3aaa15e44970f9a4748d8c08
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -198,9 +235,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Caveman_Throw_0: 4019669040484998881
-      Caveman_Throw_1: 6471380897110721304
-      ROCKE: -3734575192721493528
+      Police_Baton_0: 2909666596027514770
+      Police_Baton_1: 2799512767113698122
+      Police_Baton_2: -8628004979475079587
+      Police_Baton_3: -2286187147492634979
+      Police_Baton_4: 941144680255024346
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
