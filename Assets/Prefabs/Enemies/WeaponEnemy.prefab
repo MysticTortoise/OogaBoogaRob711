@@ -258,7 +258,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startMovingThreshold: 30
   stopMovingThreshold: 4
-  velocity: 3
+  velocity: 14
   invincibilityTime: 0
   anim: {fileID: 3567306039891040494}
   knockbackForce: 8
