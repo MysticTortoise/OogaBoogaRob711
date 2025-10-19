@@ -1,22 +1,10 @@
 fileFormatVersion: 2
-guid: 082092c607eaa2748bd12e417a659506
+guid: e879ee80f5bcf3d4b89e1272ad5547dd
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6239543403649941599
-    second: lattebutton_0
-  - first:
-      213: -7039718574214019285
-    second: lattebutton_1
-  - first:
-      213: -7927072633896303203
-    second: lattebutton_2
-  - first:
-      213: 621818784187394904
-    second: lattebutton_3
-  - first:
-      213: -9185620783602735127
-    second: lattebutton_4
+      213: -8286811997688910639
+    second: latest(7)_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -58,12 +46,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 133
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -125,101 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: lattebutton_0
+      name: latest(7)_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 96
-        width: 7
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 1af30d83550b869a0800000000000000
-      internalID: -6239543403649941599
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: lattebutton_1
-      rect:
-        serializedVersion: 2
-        x: 18
-        y: 89
-        width: 33
-        height: 26
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b2701493145ed4e90800000000000000
-      internalID: -7039718574214019285
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: lattebutton_2
-      rect:
-        serializedVersion: 2
-        x: 19
-        y: 105
-        width: 6
-        height: 10
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d9504eb50716df190800000000000000
-      internalID: -7927072633896303203
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: lattebutton_3
-      rect:
-        serializedVersion: 2
-        x: 60
-        y: 87
-        width: 6
-        height: 29
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 85ba722c3e421a800800000000000000
-      internalID: 621818784187394904
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: lattebutton_4
-      rect:
-        serializedVersion: 2
-        x: 1
         y: 0
-        width: 62
-        height: 91
+        width: 696
+        height: 1670
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -228,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9e7e9e7909e168080800000000000000
-      internalID: -9185620783602735127
+      spriteID: 1dcae4db4645ffc80800000000000000
+      internalID: -8286811997688910639
       vertices: []
       indices: 
       edges: []
@@ -238,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -248,11 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      lattebutton_0: -6239543403649941599
-      lattebutton_1: -7039718574214019285
-      lattebutton_2: -7927072633896303203
-      lattebutton_3: 621818784187394904
-      lattebutton_4: -9185620783602735127
+      latest(7)_0: -8286811997688910639
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

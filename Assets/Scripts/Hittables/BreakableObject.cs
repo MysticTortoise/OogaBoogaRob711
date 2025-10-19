@@ -5,9 +5,9 @@ public class BreakableObject : HittableBase
 {
     [SerializeField] private Vector2 hitForce;
 
-    private float timer;
+    [HideInInspector] public float timer;
 
-    private void Update()
+    public void Update()
     {
         timer -= Time.deltaTime;
     }
