@@ -1994,6 +1994,55 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &4108984113809124329
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6571580642321210198}
+  - component: {fileID: 5744038882572585298}
+  m_Layer: 0
+  m_Name: deathPP
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &6571580642321210198
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4108984113809124329}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 16.094343, y: -0.7210852, z: 3.8532693}
+  m_LocalScale: {x: 0.7592405, y: 0.7592405, z: 0.7592405}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3206028584217961260}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5744038882572585298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4108984113809124329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: 7d3414cad65924592ad8ee879920ab79, type: 2}
 --- !u!1 &4240751082784308754
 GameObject:
   m_ObjectHideFlags: 0
@@ -2271,7 +2320,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.69752854, y: 0}
   m_AnchorMax: {x: 1, y: 0.16532357}
-  m_AnchoredPosition: {x: 0, y: -0.000061035156}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0.00012207, y: 0.000061035}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &741785167984355295
@@ -2865,7 +2914,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0.26225, y: 0.16754591}
-  m_AnchoredPosition: {x: 0.00012207031, y: -0.000061035156}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -0.000076294, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2136232524843854274
@@ -2921,6 +2970,7 @@ Transform:
   m_Children:
   - {fileID: 3522487214818902153}
   - {fileID: 6914722406206893442}
+  - {fileID: 6571580642321210198}
   m_Father: {fileID: 600523688037930950}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1633737072841274572
@@ -3034,6 +3084,11 @@ MonoBehaviour:
   normalZoom: 25
   ZoomOut: 30
   ZoomIn: 18
+  deathProfile: {fileID: 4108984113809124329}
+  freezeDuration: 1
+  shakeDuration: 0.5
+  shakeIntensity: 0.2
+  deathColor: {r: 1, g: 0, b: 0, a: 1}
   cameraVFX: {fileID: 673941410160486994}
   stickboxOffset: {x: 5.59, y: -0.02}
   stickboxSize: {x: 6.03, y: 8.83}

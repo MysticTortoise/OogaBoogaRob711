@@ -1945,10 +1945,6 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
-    - target: {fileID: 6338994427022814079, guid: 1662930220ad29245b4c22d3000a076a, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
     - target: {fileID: 6736072426934796312, guid: 1662930220ad29245b4c22d3000a076a, type: 3}
       propertyPath: m_Name
       value: Player
