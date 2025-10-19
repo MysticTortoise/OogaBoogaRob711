@@ -160,6 +160,7 @@ public class Player : MonoBehaviour
         StartCoroutine(SpawnAfterImages(dashDuration));
         StartCoroutine(IFrameFlash());
         cameraVFX.PunchZoom(ZoomIn);
+        dashSound.Play();
     }
 
     public void Strike()
