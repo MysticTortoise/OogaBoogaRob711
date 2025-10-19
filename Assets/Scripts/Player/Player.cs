@@ -7,6 +7,8 @@ using Unity.VisualScripting;
 using UnityEngine.InputSystem;
 using Vector2 = UnityEngine.Vector2;
 using Vector3 = UnityEngine.Vector3;
+using UnityEngine.SceneManagement;
+
 
 public class Player : MonoBehaviour
 {
@@ -50,6 +52,18 @@ public class Player : MonoBehaviour
     public float ZoomOut;
     public float ZoomIn;
     
+    [Header("Death")]
+    public GameObject deathProfile;
+    [SerializeField] private float freezeDuration = 1f;
+    [SerializeField] private float shakeDuration = 0.5f;
+    [SerializeField] private float shakeIntensity = 0.2f;
+    [SerializeField] private Color deathColor = Color.red;
+
+
+
+    private bool isDead;
+    private Color _originalColor;
+
     [Header("References")]
     public CameraVFX cameraVFX;
 
@@ -305,6 +319,34 @@ public class Player : MonoBehaviour
         canTakeDamage = true;
     }
 
+    private IEnumerator DeathRoutine()
+    {
+    if (isDead) yield break;
+    isDead = true;
+
+    canTakeDamage = false;
+    noInputTimer = 999f;
+    cameraVFX.StartScreenShake(1f, .4f);
+    deathProfile.SetActive(true);
+
+    if (rb != null) rb.linearVelocity = Vector2.zero;
+
+    if (spriteRenderer != null)
+    {
+        _originalColor = spriteRenderer.color;
+        spriteRenderer.color = deathColor;
+    }
+
+    float prevScale = Time.timeScale;
+    Time.timeScale = 0f;
+    yield return new WaitForSecondsRealtime(freezeDuration);
+    Time.timeScale = prevScale;
+
+    // reload current scene
+    Scene current = SceneManager.GetActiveScene();
+    SceneManager.LoadScene(current.buildIndex);
+    }
+
     private void FixedUpdate()
     {
         // Camera
@@ -319,9 +361,12 @@ public class Player : MonoBehaviour
         if (canTakeDamage && other.CompareTag("Enemy"))
         {
             health -= 100;
-            if (health <= 0) { /* death */ }
+            if (health <= 0)
+            {
+                Kill();
+            }
 
-            // when die play: cameraVFX.StartScreenShake(.5f, 0.2f, cameraComp);
+
         }
         Debug.Log(health);
     }
@@ -348,6 +393,12 @@ public class Player : MonoBehaviour
             yield return new WaitForSeconds(afterImageSpawnInterval);
             elapsed += afterImageSpawnInterval;
         }
+    }
+
+    public void Kill()
+    {
+        if (!isDead)
+            StartCoroutine(DeathRoutine());
     }
 
     #if UNITY_EDITOR
