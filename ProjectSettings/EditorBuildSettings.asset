@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Menus/Level Select.unity
     guid: 63dc5006c4ab757449f1a9c9fe6f62e0
   - enabled: 1
-    path: Assets/Scenes/Levels/Level1Idaho.unity
+    path: Assets/Scenes/Levels/Level4Chicago.unity
     guid: bb9aa9d31da7a3d40a0e059807dfbc2a
   - enabled: 1
     path: Assets/Scenes/Levels/Level2.unity
