@@ -26,6 +26,6 @@ public class Collectable : MonoBehaviour
 
     private void YouWin()
     {
-        WipeTransition.SceneTransition("Level Select");
+        FindAnyObjectByType<Fade>().DoFade(Color.white, true, 3, "Level Select");
     }
 }
