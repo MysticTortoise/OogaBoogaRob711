@@ -39,7 +39,8 @@ public class Player : MonoBehaviour
     public Sprite afterImageSprite; 
 
     [Header("Stats")]
-    public int health = 1000;
+    [SerializeField] private int maxHealth = 1000;
+    private int health;
 
     [Header("Hitbox")]
     public bool canTakeDamage = true;
@@ -85,6 +86,10 @@ public class Player : MonoBehaviour
     private Animator animator;
     private Transform cameraTransform;
     private Camera cameraComp;
+    
+    // UI COMPs
+    private HealthDisplay healthDisplay;
+    private ItemDisplay itemDisplay;
 
     private AudioSource dashSound;
     
@@ -120,6 +125,16 @@ public class Player : MonoBehaviour
     // Statuses
     private bool grounded;
 
+    public void TakeDamage(int dmg)
+    {
+        health -= dmg;
+        healthDisplay.SetHealthBar((float)health / maxHealth, true);
+        if (health <= 0)
+        {
+            Kill();
+        }
+    }
+    
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -135,6 +150,11 @@ public class Player : MonoBehaviour
         }
 
         dashSound = transform.Find("Dashsound").GetComponent<AudioSource>();
+
+        healthDisplay = FindAnyObjectByType<HealthDisplay>();
+        itemDisplay = FindAnyObjectByType<ItemDisplay>();
+
+        health = maxHealth;
     }
 
     public void MoveInput(InputAction.CallbackContext context)
@@ -175,6 +195,7 @@ public class Player : MonoBehaviour
         StartCoroutine(IFrameFlash());
         cameraVFX.PunchZoom(ZoomIn);
         dashSound.Play();
+        itemDisplay.StartItemCooldown((int)ItemDisplay.itemIDS.DODGE, dashCooldown);
     }
 
     public void Strike()
@@ -187,7 +208,7 @@ public class Player : MonoBehaviour
         animator.SetTrigger("StickAttack");
         stickCooldownTimer = stickCooldown;
         stickAttackTimer = stickAttackTime;
-        
+        itemDisplay.StartItemCooldown((int)ItemDisplay.itemIDS.STICK, stickCooldown);
     }
 
     public void ThrowRock(InputAction.CallbackContext context)
@@ -204,6 +225,7 @@ public class Player : MonoBehaviour
                 rock.Throw(transform.position, (target - transform.position).normalized * throwSpeed);
                 rockAttackTimer = throwCooldown;
                 animator.SetTrigger("RockThrow");
+                itemDisplay.StartItemCooldown((int)ItemDisplay.itemIDS.ROCK, throwCooldown);
                 return;
             }
         }
@@ -361,15 +383,8 @@ public class Player : MonoBehaviour
     {
         if (canTakeDamage && other.CompareTag("Enemy"))
         {
-            health -= 100;
-            if (health <= 0)
-            {
-                Kill();
-            }
-
-
+            TakeDamage(100);
         }
-        Debug.Log(health);
     }
     
         private IEnumerator SpawnAfterImages(float duration)

@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 2875738156477420093}
   m_Layer: 7
   m_Name: Civilian
-  m_TagString: Untagged
+  m_TagString: Civilian
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -82,7 +82,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: 1846999609570627538, guid: 655b37fb8ed80fa44b7eb99fe30ac5df, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -137,7 +137,11 @@ MonoBehaviour:
   stopMovingThreshold: 5
   velocity: 5
   invincibilityTime: 1
-  health: 100
+  knockbackForce: 40
+  knockbackUp: 2
+  flashTime: 0.2
+  deathParticle: {fileID: 478717907831610694, guid: 72ae0c834f1d24d93baeb3a112d9b341, type: 3}
+  health: 150
 --- !u!61 &8046509434826007120
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -172,7 +176,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.67885876}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -182,7 +186,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 2.58, y: 9.463813}
+  m_Size: {x: 2.58, y: 8.106096}
   m_EdgeRadius: 0
 --- !u!95 &8736510997514384452
 Animator:
