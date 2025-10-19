@@ -296,6 +296,8 @@ public class Player : MonoBehaviour
 
         //set colors back
         spriteRenderer.color = normalColor;
+        //Reenable Damage
+        canTakeDamage = true;
     }
 
     private void FixedUpdate()

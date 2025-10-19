@@ -14,9 +14,9 @@ public class EnemyMovement : HittableBase
     private float distanceFromPlayer;
     private float absoluteDistanceFromPlayer;
     public float invincibilityTime;
-    public float timer;
-    public bool cooldown = false;
-    public float currentTime;
+    private float timer;
+    private bool cooldown = false;
+    private float currentTime;
 
     [SerializeField] private int health = 300;
 
@@ -45,6 +45,7 @@ public class EnemyMovement : HittableBase
             if (absoluteDistanceFromPlayer < stopMovingThreshold)
             {
                 rb.linearVelocityX = 0;
+                
             }
             else if (distanceFromPlayer > 0)
             {
