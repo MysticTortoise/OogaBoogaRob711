@@ -4,7 +4,7 @@ using UnityEngine;
 public class Collectable : MonoBehaviour
 {
     private Animator animator;
-    private bool collected;
+    private bool collected = false;
 
 
     private void Start()
@@ -15,7 +15,6 @@ public class Collectable : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if(collected){return;}
-        Debug.Log(other);
         
         if (other.GetComponent<Player>())
         {
