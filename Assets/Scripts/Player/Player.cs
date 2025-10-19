@@ -71,6 +71,8 @@ public class Player : MonoBehaviour
     private Animator animator;
     private Transform cameraTransform;
     private Camera cameraComp;
+
+    private AudioSource dashSound;
     
     // Private Variables
     // --- Input Axis ---
@@ -117,6 +119,8 @@ public class Player : MonoBehaviour
         {
             rocks.Add(Instantiate(rockPrefab).GetComponent<ThrownRock>());
         }
+
+        dashSound = transform.Find("Dashsound").GetComponent<AudioSource>();
     }
 
     public void MoveInput(InputAction.CallbackContext context)
