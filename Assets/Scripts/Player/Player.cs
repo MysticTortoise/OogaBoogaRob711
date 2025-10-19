@@ -62,6 +62,7 @@ public class Player : MonoBehaviour
     [SerializeField] private GameObject rockPrefab;
     [SerializeField] private int maxRocks;
     [SerializeField] private float throwSpeed;
+    [SerializeField] private float throwCooldown;
 
     // --- internals ---
     private Rigidbody2D rb;
@@ -98,6 +99,7 @@ public class Player : MonoBehaviour
     private List<ThrownRock> rocks = new List<ThrownRock>();
     private float stickCooldownTimer;
     private float stickAttackTimer;
+    private float rockAttackTimer;
 
     // Statuses
     private bool grounded;
@@ -171,7 +173,7 @@ public class Player : MonoBehaviour
 
     public void ThrowRock(InputAction.CallbackContext context)
     {
-        if (!context.started)
+        if (!context.started || rockAttackTimer > 0)
         {
             return;
         }
@@ -181,6 +183,7 @@ public class Player : MonoBehaviour
             {
                 Vector3 target = cameraComp.ViewportToWorldPoint(aimPos);
                 rock.Throw(transform.position, (target - transform.position).normalized * throwSpeed);
+                rockAttackTimer = throwCooldown;
                 return;
             }
         }
@@ -209,6 +212,7 @@ public class Player : MonoBehaviour
         noInputTimer -= Time.deltaTime;
         stickCooldownTimer -= Time.deltaTime;
         stickAttackTimer -= Time.deltaTime;
+        rockAttackTimer -= Time.deltaTime;
 
         // Stick Check
         if (stickAttackTimer > 0)
