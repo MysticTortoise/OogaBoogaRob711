@@ -138,6 +138,7 @@ public class Player : MonoBehaviour
         
         health -= dmg;
         healthDisplay.SetHealthBar((float)health / maxHealth, true);
+        healthDisplay.SetHealthText($"{health} / {maxHealth}");
         rb.linearVelocityX = Mathf.Sign(otherPoint.x - transform.position.x) * -knockback; 
         Debug.Log(rb.linearVelocityX);
         noInputTimer = 0.5f;
