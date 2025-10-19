@@ -23,4 +23,9 @@ public class Collectable : MonoBehaviour
             player.DoWin(this);
         }
     }
+
+    private void YouWin()
+    {
+        WipeTransition.SceneTransition("Level Select");
+    }
 }

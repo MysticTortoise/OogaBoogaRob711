@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 4abb5b730d4e39a49afdf9e3ea92f412
+guid: 5e35d5751df841a4188aba9183495e11
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6300527540722236834
-    second: Trashcan_0
+      213: 3480545389671750302
+    second: GruntUI_PlaySelected_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 75
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Trashcan_0
+      name: GruntUI_PlaySelected_0
       rect:
         serializedVersion: 2
-        x: 61
-        y: 36
-        width: 274
-        height: 324
+        x: 5
+        y: 54
+        width: 590
+        height: 198
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e528fa555970098a0800000000000000
-      internalID: -6300527540722236834
+      spriteID: e9a120857916d4030800000000000000
+      internalID: 3480545389671750302
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Trashcan_0: -6300527540722236834
+      GruntUI_PlaySelected_0: 3480545389671750302
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
