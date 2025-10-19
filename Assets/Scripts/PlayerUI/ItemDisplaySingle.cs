@@ -41,10 +41,15 @@ public class ItemDisplaySingle : MonoBehaviour
         cooldownImage.gameObject.SetActive(false);
         cooldownCompleteEffect.gameObject.SetActive(true);
 
-        var sequence2 = DOTween.Sequence();
-        sequence2.Append(cooldownCompleteEffect.DOFade(0, 0.2f).SetEase(Ease.Linear));
-        sequence2.Join(cooldownCompleteEffect.rectTransform.DOScale(1.5f, 0.2f).SetEase(Ease.OutQuad));
-        yield return sequence2.WaitForCompletion();
+        //var sequence2 = DOTween.Sequence();
+        //sequence2.Append(cooldownCompleteEffect.DOFade(0, 0.2f).SetEase(Ease.Linear));
+        //sequence2.Join(cooldownCompleteEffect.rectTransform.DOScale(1.5f, 0.2f).SetEase(Ease.OutQuad));
+        //yield return sequence2.WaitForCompletion();
+
+        yield return DOTween.Sequence()
+        .Append(cooldownCompleteEffect.DOFade(0, 0.2f).SetEase(Ease.Linear))
+        .Join(cooldownCompleteEffect.rectTransform.DOScale(1.5f, 0.2f).SetEase(Ease.OutQuad))
+        .WaitForCompletion();
 
         cooldownCompleteEffect.gameObject.SetActive(false);
     }

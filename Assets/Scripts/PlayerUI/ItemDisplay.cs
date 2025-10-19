@@ -15,7 +15,7 @@ public class ItemDisplay : MonoBehaviour
 
     public void Test(int itemID)
     {
-        StartItemCooldown(itemID, 1);
+        StartItemCooldown(itemID, 2);
     }
 
     public void StartItemCooldown(int itemIndex, float cooldownTime)
