@@ -260,6 +260,12 @@ MonoBehaviour:
   stopMovingThreshold: 4
   velocity: 3
   invincibilityTime: 0
+  anim: {fileID: 3567306039891040494}
+  knockbackForce: 8
+  knockbackUp: 2
+  flashTime: 0.2
+  deathParticle: {fileID: 0}
+  flashInterval: 0
   health: 300
 --- !u!95 &3567306039891040494
 Animator:

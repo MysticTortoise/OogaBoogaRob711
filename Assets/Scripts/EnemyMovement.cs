@@ -17,6 +17,9 @@ public class EnemyMovement : HittableBase
     public float invincibilityTime;
     private bool cooldown = false;
 
+    [Header("Animator")]
+        public Animator anim;
+
         [Header("Hit Reaction")]
             public float knockbackForce = 8f;
             public float knockbackUp = 2f;
@@ -57,25 +60,23 @@ if (sr != null)
         absoluteDistanceFromPlayer = Math.Abs(distanceFromPlayer);
         if (absoluteDistanceFromPlayer < startMovingThreshold)
         {
-            if (distanceFromPlayer > 0)
-            {
-                enemy.localScale = math.abs(enemy.localScale);
-            }
-            if (distanceFromPlayer < 0)
-            {
-                enemy.localScale = new Vector3(-Math.Abs(enemy.localScale.x), enemy.localScale.y, enemy.localScale.z);
-            }
-            if (absoluteDistanceFromPlayer < stopMovingThreshold)
+                       if (absoluteDistanceFromPlayer < stopMovingThreshold)
             {
                 rb.linearVelocityX = 0;
+                anim.SetBool("move", false);
+                
             }
             else if (distanceFromPlayer > 0)
             {
                 rb.linearVelocityX = -velocity;
+                anim.SetBool("move", true);
+                enemy.localScale = math.abs(enemy.localScale);
             }
             else if (distanceFromPlayer < 0)
             {
                 rb.linearVelocityX = velocity;
+                anim.SetBool("move", true);
+                enemy.localScale = new Vector3(-Math.Abs(enemy.localScale.x), enemy.localScale.y, enemy.localScale.z);
             }
         }
     }

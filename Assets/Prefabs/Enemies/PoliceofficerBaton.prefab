@@ -275,6 +275,7 @@ MonoBehaviour:
   stopMovingThreshold: 4
   velocity: 3
   invincibilityTime: 0.3
+  anim: {fileID: 3567306039891040494}
   knockbackForce: 30
   knockbackUp: 0
   flashTime: 0.3
