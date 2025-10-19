@@ -16,10 +16,11 @@ public class Collectable : MonoBehaviour
     {
         if(collected){return;}
         
-        if (other.GetComponent<Player>())
+        if (other.GetComponent<Player>() is Player player)
         {
             animator.SetTrigger("Got");
             collected = true;
+            player.DoWin(this);
         }
     }
 }
