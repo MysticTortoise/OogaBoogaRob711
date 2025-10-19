@@ -68,8 +68,6 @@ public class Player : MonoBehaviour
     [SerializeField] private float shakeDuration = 0.5f;
     [SerializeField] private float shakeIntensity = 0.2f;
     [SerializeField] private Color deathColor = Color.red;
-    
-
 
 
     private bool isDead;
@@ -220,6 +218,7 @@ public class Player : MonoBehaviour
         StartCoroutine(SpawnAfterImages(dashDuration));
         StartCoroutine(IFrameFlash(dashDuration + iFrameBuffer));
         cameraVFX.PunchZoom(ZoomIn);
+        animator.SetTrigger("roll");
         dashSound.Play();
         itemDisplay.StartItemCooldown((int)ItemDisplay.itemIDS.DODGE, dashCooldown);
     }
@@ -254,6 +253,7 @@ public class Player : MonoBehaviour
                 rock.Throw(transform.position, (target - transform.position).normalized * throwSpeed);
                 rockAttackTimer = throwCooldown;
                 playSound(booga);
+
                 animator.SetTrigger("RockThrow");
                 itemDisplay.StartItemCooldown((int)ItemDisplay.itemIDS.ROCK, throwCooldown);
                 return;

@@ -3142,7 +3142,7 @@ MonoBehaviour:
   afterImageLifetime: 0.3
   afterImageSpawnInterval: 0.05
   afterImageColor: {r: 0, g: 0.8105297, b: 1, a: 0.5}
-  afterImageSprite: {fileID: 1750004655, guid: f24bcde49ce01462cbf0e83a585d3b02, type: 3}
+  afterImageSprite: {fileID: 4068917314756290430, guid: b521a547fdc55473bbcd290897a59a58, type: 3}
   maxHealth: 1000
   canTakeDamage: 1
   cameraAheadAmount: 3
