@@ -353,4 +353,8 @@ MonoBehaviour:
   startMovingThreshold: 30
   stopMovingThreshold: 4
   velocity: 3
-  health: 50
+  invincibilityTime: 0
+  timer: 0
+  cooldown: 0
+  currentTime: 0
+  health: 300
