@@ -109,7 +109,7 @@ Rigidbody2D:
   m_Mass: 10
   m_LinearDamping: 10
   m_AngularDamping: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 10
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -143,7 +143,7 @@ MonoBehaviour:
   flashTime: 0.3
   deathParticle: {fileID: 478717907831610694, guid: 48846b2a9971a43d49aa356f17948187, type: 3}
   flashInterval: 0.05
-  health: 200
+  health: 300
 --- !u!61 &8046509434826007120
 BoxCollider2D:
   m_ObjectHideFlags: 0
