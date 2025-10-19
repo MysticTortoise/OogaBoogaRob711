@@ -9,6 +9,8 @@ public class shootProjectile : MonoBehaviour
     private Transform enemy;
     private Transform player;
     private Rigidbody2D rb;
+    private SpriteRenderer render;
+    private BoxCollider2D col;
     private float timer;
     public float speed;
     private Boolean runUpdate = false;
@@ -20,23 +22,29 @@ public class shootProjectile : MonoBehaviour
         projectile = GetComponent<Transform>();
         player = FindAnyObjectByType<Player>().transform;
         rb = GetComponent<Rigidbody2D>();
+        render = GetComponent<SpriteRenderer>();
+        col = GetComponent<BoxCollider2D>();
         runUpdate = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (runUpdate)
+        if (runUpdate && enemy != null)
         {
             timer += Time.deltaTime;
             if (timer <= 3)
             {
                 projectile.position = new Vector3 (enemy.position.x, enemy.position.y + 2.871128f, enemy.position.z);
                 rb.linearVelocityX = 0;
+                render.enabled = false;
+                col.enabled = false;
             }
 
             if (timer > 3)
             {
+                render.enabled = true;
+                col.enabled = true;
                 if (timer < 3.05)
                 {
                     if (player.position.x > enemy.position.x)
@@ -62,7 +70,6 @@ public class shootProjectile : MonoBehaviour
         if (collider.tag == "Player")
         {
             timer = 0;
-            Debug.Log("Collided");
         }
     }
 }

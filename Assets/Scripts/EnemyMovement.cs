@@ -52,25 +52,30 @@ if (sr != null)
     void Update()
     {
         if (stunned) return;
-        
+
         distanceFromPlayer = enemy.position.x - player.position.x;
         absoluteDistanceFromPlayer = Math.Abs(distanceFromPlayer);
         if (absoluteDistanceFromPlayer < startMovingThreshold)
         {
+            if (distanceFromPlayer > 0)
+            {
+                enemy.localScale = math.abs(enemy.localScale);
+            }
+            if (distanceFromPlayer < 0)
+            {
+                enemy.localScale = new Vector3(-Math.Abs(enemy.localScale.x), enemy.localScale.y, enemy.localScale.z);
+            }
             if (absoluteDistanceFromPlayer < stopMovingThreshold)
             {
                 rb.linearVelocityX = 0;
-                
             }
             else if (distanceFromPlayer > 0)
             {
                 rb.linearVelocityX = -velocity;
-                enemy.localScale = math.abs(enemy.localScale);
             }
             else if (distanceFromPlayer < 0)
             {
                 rb.linearVelocityX = velocity;
-                enemy.localScale = new Vector3(-Math.Abs(enemy.localScale.x), enemy.localScale.y, enemy.localScale.z);
             }
         }
     }
