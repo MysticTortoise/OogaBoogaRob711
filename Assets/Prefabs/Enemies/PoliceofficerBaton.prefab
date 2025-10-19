@@ -279,7 +279,7 @@ MonoBehaviour:
   knockbackForce: 30
   knockbackUp: 0
   flashTime: 0.3
-  deathParticle: {fileID: 478717907831610694, guid: 72ae0c834f1d24d93baeb3a112d9b341, type: 3}
+  deathParticle: {fileID: 478717907831610694, guid: 48846b2a9971a43d49aa356f17948187, type: 3}
   flashInterval: 0.05
   health: 300
 --- !u!95 &3567306039891040494
