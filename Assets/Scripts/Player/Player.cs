@@ -57,6 +57,11 @@ public class Player : MonoBehaviour
     [SerializeField] private float knockback = 150;
     [SerializeField] private float damageIFrames;
     
+    [Header("SoundEffects")]
+    public AudioSource hit;
+    public AudioSource ooga;
+    public AudioSource booga;
+
     [Header("Death")]
     public GameObject deathProfile;
     [SerializeField] private float freezeDuration = 1f;
@@ -226,6 +231,9 @@ public class Player : MonoBehaviour
             return;
         }
 
+        playSound(hit);
+        playSound(ooga);
+        
         animator.SetTrigger("StickAttack");
         stickCooldownTimer = stickCooldown;
         stickAttackTimer = stickAttackTime;
@@ -245,6 +253,7 @@ public class Player : MonoBehaviour
                 Vector3 target = cameraComp.ViewportToWorldPoint(aimPos);
                 rock.Throw(transform.position, (target - transform.position).normalized * throwSpeed);
                 rockAttackTimer = throwCooldown;
+                playSound(booga);
                 animator.SetTrigger("RockThrow");
                 itemDisplay.StartItemCooldown((int)ItemDisplay.itemIDS.ROCK, throwCooldown);
                 return;
@@ -335,6 +344,11 @@ public class Player : MonoBehaviour
         animator.SetBool("InAir", !grounded);
         
         
+    }
+
+    public void playSound(AudioSource sound)
+    {
+        sound.Play();
     }
 
     // flash
