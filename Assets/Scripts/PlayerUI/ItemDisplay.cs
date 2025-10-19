@@ -13,6 +13,10 @@ public class ItemDisplay : MonoBehaviour
         DODGE = 2
     }
 
+    /// <summary>
+    /// DO NOT USE. for testing purposes only.
+    /// </summary>
+    /// <param name="itemID"></param>
     public void Test(int itemID)
     {
         StartItemCooldown(itemID, 2);

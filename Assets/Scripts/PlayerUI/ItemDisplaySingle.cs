@@ -4,6 +4,7 @@ using UnityEngine.UI;
 using DG.Tweening;
 
 // makes a single item display function
+// not meant to be called on its own, use ItemDisplay instead
 public class ItemDisplaySingle : MonoBehaviour
 {
     [SerializeField] Image cooldownImage;
