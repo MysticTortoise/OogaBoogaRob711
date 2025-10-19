@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2875738156477420093}
   - component: {fileID: 7129911688843669083}
   m_Layer: 7
-  m_Name: Civillian3
+  m_Name: GangMelee
   m_TagString: Civilian
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -83,7 +83,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 2124786983643531732, guid: b83b88cda81836647a7d2fd1d1576cb7, type: 3}
+  m_Sprite: {fileID: -3497447185134134546, guid: f142ea582cda2bf4fb795d0b16bfedee, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -109,7 +109,7 @@ Rigidbody2D:
   m_Mass: 10
   m_LinearDamping: 10
   m_AngularDamping: 0.05
-  m_GravityScale: 10
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -135,15 +135,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startMovingThreshold: 30
   stopMovingThreshold: 5
-  velocity: 5
-  invincibilityTime: 0.3
+  velocity: 9
+  invincibilityTime: 0.2
   anim: {fileID: 7129911688843669083}
   knockbackForce: 40
   knockbackUp: 2
   flashTime: 0.3
   deathParticle: {fileID: 478717907831610694, guid: 48846b2a9971a43d49aa356f17948187, type: 3}
   flashInterval: 0.05
-  health: 150
+  health: 200
 --- !u!61 &8046509434826007120
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -182,7 +182,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.58063, y: 9.52}
+    oldSize: {x: 2.95, y: 9.462666}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -213,7 +213,7 @@ Animator:
   m_GameObject: {fileID: 476779881511755404}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 5d328ff0eac934995985f92ac49eb1fe, type: 2}
+  m_Controller: {fileID: 9100000, guid: a7ddcc0c1dc1e864d97dd631b8578488, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -316,7 +316,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1aa0922d58a3a540a4c0b6edaa6edde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 50
+  damage: 100
   sourceObj: {fileID: 8954069673577548771}
 --- !u!1 &9102244099235877585
 GameObject:

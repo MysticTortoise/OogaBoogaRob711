@@ -1299,7 +1299,7 @@ MonoBehaviour:
   moveToCenterPos: {fileID: 1885285415}
   fadeToWhite: {fileID: 2015799833}
   enterLevelSFX: {fileID: 175327926}
-  levelToLoad: 
+  levelToLoad: Level4Chicago
 --- !u!1 &687886684
 GameObject:
   m_ObjectHideFlags: 0
@@ -1535,7 +1535,7 @@ MonoBehaviour:
   moveToCenterPos: {fileID: 1885285415}
   fadeToWhite: {fileID: 2015799833}
   enterLevelSFX: {fileID: 175327926}
-  levelToLoad: 
+  levelToLoad: Level3
 --- !u!1 &880531035
 GameObject:
   m_ObjectHideFlags: 0
