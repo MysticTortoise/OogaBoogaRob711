@@ -291,7 +291,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 6
+  m_Constraints: 4
 --- !u!61 &7033915373014405144
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -354,7 +354,4 @@ MonoBehaviour:
   stopMovingThreshold: 4
   velocity: 3
   invincibilityTime: 0
-  timer: 0
-  cooldown: 0
-  currentTime: 0
   health: 300
