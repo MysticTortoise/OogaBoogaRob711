@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 3153909248065275464}
   - component: {fileID: 3860003274713456186}
   - component: {fileID: 8046509434826007120}
-  - component: {fileID: 8736510997514384452}
   - component: {fileID: 2875738156477420093}
+  - component: {fileID: 7129911688843669083}
   m_Layer: 7
   m_Name: Civillian3
   m_TagString: Civilian
@@ -137,7 +137,7 @@ MonoBehaviour:
   stopMovingThreshold: 5
   velocity: 5
   invincibilityTime: 0.3
-  anim: {fileID: 8736510997514384452}
+  anim: {fileID: 7129911688843669083}
   knockbackForce: 40
   knockbackUp: 2
   flashTime: 0.3
@@ -190,28 +190,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 2.58, y: 8.106096}
   m_EdgeRadius: 0
---- !u!95 &8736510997514384452
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 476779881511755404}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9732eb124503d564ba87e7bcdaec0a73, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &2875738156477420093
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -225,6 +203,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   threshold: 5
+--- !u!95 &7129911688843669083
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 476779881511755404}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5d328ff0eac934995985f92ac49eb1fe, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &7747532737000746733
 GameObject:
   m_ObjectHideFlags: 0

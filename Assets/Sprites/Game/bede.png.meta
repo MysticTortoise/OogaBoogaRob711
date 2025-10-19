@@ -1,22 +1,10 @@
 fileFormatVersion: 2
-guid: b83b88cda81836647a7d2fd1d1576cb7
+guid: f6f7f11f0c76c5744b7c6149d9ad8a22
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2124786983643531732
-    second: Civillian3_0
-  - first:
-      213: -4749140654052950144
-    second: Civillian3_1
-  - first:
-      213: -4422690877127191387
-    second: Civillian3_2
-  - first:
-      213: 546176364946428144
-    second: Civillian3_3
-  - first:
-      213: -9012489546759619043
-    second: Civillian3_4
+      213: 2691678595790734712
+    second: bede_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -125,111 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Civillian3_0
+      name: bede_0
       rect:
         serializedVersion: 2
-        x: 32
-        y: 17
-        width: 258
-        height: 952
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 4d942770182cc7d10800000000000000
-      internalID: 2124786983643531732
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Civillian3_1
-      rect:
-        serializedVersion: 2
-        x: 353
-        y: 15
-        width: 395
-        height: 949
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 08fbec6bcb9a71eb0800000000000000
-      internalID: -4749140654052950144
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Civillian3_2
-      rect:
-        serializedVersion: 2
-        x: 762
+        x: 28
         y: 7
-        width: 315
-        height: 962
+        width: 474
+        height: 239
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5a4197564127f92c0800000000000000
-      internalID: -4422690877127191387
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Civillian3_3
-      rect:
-        serializedVersion: 2
-        x: 1068
-        y: 2
-        width: 366
-        height: 971
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0f098599288649700800000000000000
-      internalID: 546176364946428144
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Civillian3_4
-      rect:
-        serializedVersion: 2
-        x: 1495
-        y: 14
-        width: 463
-        height: 909
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d1eb877e1843de280800000000000000
-      internalID: -9012489546759619043
+      spriteID: 87501a7fb63ca5520800000000000000
+      internalID: 2691678595790734712
       vertices: []
       indices: 
       edges: []
@@ -238,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 55b9f1be0e5cf4ac4b7dce3ae6c6a747
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -248,11 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Civillian3_0: 2124786983643531732
-      Civillian3_1: -4749140654052950144
-      Civillian3_2: -4422690877127191387
-      Civillian3_3: 546176364946428144
-      Civillian3_4: -9012489546759619043
+      bede_0: 2691678595790734712
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
