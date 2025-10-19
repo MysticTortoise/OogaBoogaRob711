@@ -2017,11 +2017,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3ca36362cc396a4791d437394d5c24e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< Updated upstream
-  hpText: {fileID: 0}
-=======
   hpText: {fileID: 2313336452725074246}
->>>>>>> Stashed changes
   hpFill: {fileID: 6130900872613273703}
   hpChange: {fileID: 3663347750570712293}
   changeAnimationDuration: 1.2
@@ -2626,11 +2622,7 @@ MonoBehaviour:
   rockPrefab: {fileID: 2724678614697140507, guid: ec9d17e656af3bc4490578cc5726c85b, type: 3}
   maxRocks: 3
   throwSpeed: 150
-<<<<<<< Updated upstream
   throwCooldown: 1
-=======
-  throwCooldown: 0
->>>>>>> Stashed changes
 --- !u!114 &6939166586695113105
 MonoBehaviour:
   m_ObjectHideFlags: 0
