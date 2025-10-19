@@ -132,7 +132,8 @@ public class Player : MonoBehaviour
     {
         health -= dmg;
         healthDisplay.SetHealthBar((float)health / maxHealth, true);
-        rb.linearVelocityX = otherPoint.x - transform.position.x * -knockback; 
+        rb.linearVelocityX = Mathf.Sign(otherPoint.x - transform.position.x) * -knockback; 
+        Debug.Log(rb.linearVelocityX);
         noInputTimer = 0.5f;
         cameraVFX.PunchZoom(Mathf.Lerp(normalZoom, ZoomIn, 0.5f));
         if (health <= 0)

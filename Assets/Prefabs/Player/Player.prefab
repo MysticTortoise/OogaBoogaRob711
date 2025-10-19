@@ -2643,7 +2643,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: e648ef514f1fcdb4b80d7c6b92746d95, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -3089,7 +3089,7 @@ MonoBehaviour:
   shakeDuration: 0.5
   shakeIntensity: 0.2
   deathColor: {r: 1, g: 0, b: 0, a: 1}
-  knockback: 0.02
+  knockback: 1000
   cameraVFX: {fileID: 673941410160486994}
   stickboxOffset: {x: 5.59, y: -0.02}
   stickboxSize: {x: 6.03, y: 8.83}
