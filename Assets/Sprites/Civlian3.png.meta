@@ -1,22 +1,22 @@
 fileFormatVersion: 2
-guid: b83b88cda81836647a7d2fd1d1576cb7
+guid: 780199c310fff452d814b2c025279b74
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2124786983643531732
-    second: Civillian3_0
+      213: 7567229514738108549
+    second: Civlian3_0
   - first:
-      213: -4749140654052950144
-    second: Civillian3_1
+      213: 5380356376865930767
+    second: Civlian3_1
   - first:
-      213: -4422690877127191387
-    second: Civillian3_2
+      213: -4585713073411563886
+    second: Civlian3_2
   - first:
-      213: 546176364946428144
-    second: Civillian3_3
+      213: -4730655089098909654
+    second: Civlian3_3
   - first:
-      213: -9012489546759619043
-    second: Civillian3_4
+      213: -722941238241460628
+    second: Civlian3_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -125,7 +125,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Civillian3_0
+      name: Civlian3_0
       rect:
         serializedVersion: 2
         x: 32
@@ -133,21 +133,21 @@ TextureImporter:
         width: 258
         height: 952
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4d942770182cc7d10800000000000000
-      internalID: 2124786983643531732
+      spriteID: 58801d79623340960800000000000000
+      internalID: 7567229514738108549
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Civillian3_1
+      name: Civlian3_1
       rect:
         serializedVersion: 2
         x: 353
@@ -155,81 +155,81 @@ TextureImporter:
         width: 395
         height: 949
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 08fbec6bcb9a71eb0800000000000000
-      internalID: -4749140654052950144
+      spriteID: f0ef9105e9ddaaa40800000000000000
+      internalID: 5380356376865930767
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Civillian3_2
+      name: Civlian3_2
       rect:
         serializedVersion: 2
         x: 762
         y: 7
-        width: 315
-        height: 962
+        width: 352
+        height: 943
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5a4197564127f92c0800000000000000
-      internalID: -4422690877127191387
+      spriteID: 29e507181464c50c0800000000000000
+      internalID: -4585713073411563886
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Civillian3_3
+      name: Civlian3_3
       rect:
         serializedVersion: 2
-        x: 1068
-        y: 2
-        width: 366
-        height: 971
+        x: 1196
+        y: 3
+        width: 371
+        height: 942
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0f098599288649700800000000000000
-      internalID: 546176364946428144
+      spriteID: a289d53b246595eb0800000000000000
+      internalID: -4730655089098909654
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Civillian3_4
+      name: Civlian3_4
       rect:
         serializedVersion: 2
-        x: 1495
-        y: 14
+        x: 1628
+        y: 15
         width: 463
         height: 909
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d1eb877e1843de280800000000000000
-      internalID: -9012489546759619043
+      spriteID: c6ef22d26c897f5f0800000000000000
+      internalID: -722941238241460628
       vertices: []
       indices: 
       edges: []
@@ -238,7 +238,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 55b9f1be0e5cf4ac4b7dce3ae6c6a747
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -248,11 +248,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Civillian3_0: 2124786983643531732
-      Civillian3_1: -4749140654052950144
-      Civillian3_2: -4422690877127191387
-      Civillian3_3: 546176364946428144
-      Civillian3_4: -9012489546759619043
+      Civlian3_0: 7567229514738108549
+      Civlian3_1: 5380356376865930767
+      Civlian3_2: -4585713073411563886
+      Civlian3_3: -4730655089098909654
+      Civlian3_4: -722941238241460628
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
