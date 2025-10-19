@@ -310,7 +310,7 @@ public class Player : MonoBehaviour
         }
     
         // Grounded Check
-        grounded = Physics2D.OverlapBox((Vector2)boxCollider.bounds.center - new Vector2(0, boxCollider.bounds.size.y * 0.5f), new Vector2(boxCollider.bounds.size.x * 0.9f, 0.1f), 0, boxCollider.includeLayers);
+        grounded = Physics2D.OverlapBox((Vector2)boxCollider.bounds.center - new Vector2(0, boxCollider.bounds.size.y * 0.5f), new Vector2(boxCollider.bounds.size.x, 1), 0, boxCollider.includeLayers);
         
         
         // Deceleration
@@ -454,7 +454,7 @@ public class Player : MonoBehaviour
             boxCollider = GetComponent<BoxCollider2D>();
         }
         Gizmos.color = Color.blue;
-        Gizmos.DrawWireCube((Vector2)boxCollider.bounds.center - new Vector2(0, boxCollider.bounds.size.y * 0.5f), new Vector2(boxCollider.bounds.size.x * 0.9f, 0.1f));
+        Gizmos.DrawWireCube((Vector2)boxCollider.bounds.center - new Vector2(0, boxCollider.bounds.size.y * 0.5f), new Vector2(boxCollider.bounds.size.x, 1f));
 
         Gizmos.color = Color.red;
         Gizmos.DrawWireCube(boxCollider.bounds.center + (Vector3)stickboxOffset, stickboxSize);
