@@ -1,20 +1,27 @@
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using TMPro;
 
 public class HealthDisplay : MonoBehaviour
 {
+    [SerializeField] TextMeshProUGUI hpText;
     [SerializeField] Image hpFill; // the yellow part or something
     [SerializeField] Image hpChange; // the white part
     [SerializeField] float changeAnimationDuration;
 
+    
+    public void SetHealthText(string newText)
+    {
+        hpText.text = newText;
+    }
 
     /// <summary>
     /// sets the health display to the desired value
     /// this will <b><u>NOT</u></b> play any animations. it only sets the display directly.
     /// </summary>
     /// <param name="newDisplayValue">the new overlay fillAmount value. <b>FINAL VALUE MUST BE BETWEEN 0 TO 1</b></param>
-    public void SetHealthDisplay(float newDisplayValue)
+    public void SetHealthBar(float newDisplayValue)
     {
         DOTween.Kill(hpFill);
         DOTween.Kill(hpChange);
@@ -27,7 +34,7 @@ public class HealthDisplay : MonoBehaviour
     /// </summary>
     /// <param name="newDisplayValue">the new overlay fillAmount value. <b>FINAL VALUE MUST BE BETWEEN 0 TO 1</b></param>
     /// <param name="playAnimation">whether to play the health change animation</param>
-    public void SetHealthDisplay(float newDisplayValue, bool playAnimation)
+    public void SetHealthBar(float newDisplayValue, bool playAnimation)
     {
         if (newDisplayValue == hpFill.fillAmount)
             return;
@@ -55,7 +62,7 @@ public class HealthDisplay : MonoBehaviour
     /// will play the health change animation unless you use the overload function
     /// </summary>
     /// <param name="changeValue">the value to change health fillAmount by. <b>FINAL VALUE MUST BE BETWEEN 0 TO 1</b></param>
-    public void ChangeHealthDisplay(float changeValue)
+    public void ChangeHealthBar(float changeValue)
     {
         if (changeValue == 0)
             return;
@@ -83,7 +90,7 @@ public class HealthDisplay : MonoBehaviour
     /// </summary>
     /// <param name="changeValue">the value to change health fillAmount by. <b>FINAL VALUE MUST BE BETWEEN 0 TO 1</b></param>
     /// <param name="playAnimation">whether or not to play the health change animation</param>
-    public void ChangeHealthDisplay(float changeValue, bool playAnimation)
+    public void ChangeHealthBar(float changeValue, bool playAnimation)
     {
         if(changeValue == 0)
             return;
