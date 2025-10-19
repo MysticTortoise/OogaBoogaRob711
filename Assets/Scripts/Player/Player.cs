@@ -203,6 +203,7 @@ public class Player : MonoBehaviour
                 Vector3 target = cameraComp.ViewportToWorldPoint(aimPos);
                 rock.Throw(transform.position, (target - transform.position).normalized * throwSpeed);
                 rockAttackTimer = throwCooldown;
+                animator.SetTrigger("RockThrow");
                 return;
             }
         }
