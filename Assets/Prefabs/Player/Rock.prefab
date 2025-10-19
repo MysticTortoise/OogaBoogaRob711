@@ -116,3 +116,4 @@ MonoBehaviour:
     maxDepth: 0
     minNormalAngle: 0
     maxNormalAngle: 0
+  particleRock: {fileID: 478717907831610694, guid: be43a2db2536749d3bdfa0fa87526e68, type: 3}

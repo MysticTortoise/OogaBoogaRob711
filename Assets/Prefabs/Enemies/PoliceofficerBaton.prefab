@@ -271,14 +271,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53123a8a9eae95c468e5bb9f2aab70ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startMovingThreshold: 30
+  startMovingThreshold: 60
   stopMovingThreshold: 4
-  velocity: 3
+  velocity: 14
   invincibilityTime: 0.3
   anim: {fileID: 3567306039891040494}
-  knockbackForce: 30
+  knockbackForce: 20
   knockbackUp: 0
-  flashTime: 0.3
+  flashTime: 0.1
   deathParticle: {fileID: 478717907831610694, guid: 48846b2a9971a43d49aa356f17948187, type: 3}
   flashInterval: 0.05
   health: 300

@@ -8,6 +8,8 @@ public class ThrownRock : MonoBehaviour
     [SerializeField] private Vector2 bounds;
     [SerializeField] private ContactFilter2D mask;
     
+    public GameObject particleRock;
+
     private Camera playerCamera;
     private SpriteRenderer spriteRenderer;
 
@@ -58,6 +60,8 @@ public class ThrownRock : MonoBehaviour
             {
                 if (collider.GetComponent<HittableBase>() is HittableBase hittable)
                 {
+                    Instantiate(particleRock, transform.position, Quaternion.identity);
+                    
                     hittable.Hit(HitType.Rock);
                 }
             }
