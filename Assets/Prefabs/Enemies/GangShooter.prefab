@@ -178,7 +178,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53123a8a9eae95c468e5bb9f2aab70ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startMovingThreshold: 60
+  startMovingThreshold: 30
   stopMovingThreshold: 30
   velocity: 5
   invincibilityTime: 0.3
