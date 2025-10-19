@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 8954069673577548771}
   - component: {fileID: 226184657141826729}
   - component: {fileID: 3153909248065275464}
-  - component: {fileID: 6913528481320480413}
   - component: {fileID: 3860003274713456186}
-  - component: {fileID: 7886512837761865212}
+  - component: {fileID: 8046509434826007120}
+  - component: {fileID: 8736510997514384452}
   - component: {fileID: 2875738156477420093}
   m_Layer: 7
   m_Name: Civilian
@@ -121,7 +121,24 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &6913528481320480413
+--- !u!114 &3860003274713456186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 476779881511755404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53123a8a9eae95c468e5bb9f2aab70ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startMovingThreshold: 30
+  stopMovingThreshold: 5
+  velocity: 5
+  invincibilityTime: 1
+  health: 100
+--- !u!61 &8046509434826007120
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -151,11 +168,11 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.00000023841858, y: 0.06675267}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -165,26 +182,9 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 2.5, y: 9.410765}
+  m_Size: {x: 2.58, y: 9.463813}
   m_EdgeRadius: 0
---- !u!114 &3860003274713456186
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 476779881511755404}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53123a8a9eae95c468e5bb9f2aab70ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startMovingThreshold: 30
-  stopMovingThreshold: 5
-  velocity: 5
-  invincibilityTime: 1
-  health: 100
---- !u!95 &7886512837761865212
+--- !u!95 &8736510997514384452
 Animator:
   serializedVersion: 7
   m_ObjectHideFlags: 0

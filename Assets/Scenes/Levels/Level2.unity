@@ -139,22 +139,6 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 2875738156477420093, guid: 4ca8d1ca45302a044ae7c2d61fd5c320, type: 3}
-      propertyPath: threshold
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3153909248065275464, guid: 4ca8d1ca45302a044ae7c2d61fd5c320, type: 3}
-      propertyPath: m_Constraints
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3860003274713456186, guid: 4ca8d1ca45302a044ae7c2d61fd5c320, type: 3}
-      propertyPath: health
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 3860003274713456186, guid: 4ca8d1ca45302a044ae7c2d61fd5c320, type: 3}
-      propertyPath: stopMovingThreshold
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 6913528481320480413, guid: 4ca8d1ca45302a044ae7c2d61fd5c320, type: 3}
       propertyPath: m_Size.y
       value: 10.844067
@@ -223,17 +207,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 6913528481320480413, guid: 4ca8d1ca45302a044ae7c2d61fd5c320, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 476779881511755404, guid: 4ca8d1ca45302a044ae7c2d61fd5c320, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1665809648}
-    - targetCorrespondingSourceObject: {fileID: 476779881511755404, guid: 4ca8d1ca45302a044ae7c2d61fd5c320, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1665809651}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ca8d1ca45302a044ae7c2d61fd5c320, type: 3}
 --- !u!1 &482149719
 GameObject:
@@ -4283,79 +4260,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1662930220ad29245b4c22d3000a076a, type: 3}
---- !u!1 &1665809642 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 476779881511755404, guid: 4ca8d1ca45302a044ae7c2d61fd5c320, type: 3}
-  m_PrefabInstance: {fileID: 247272244}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &1665809648
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1665809642}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9732eb124503d564ba87e7bcdaec0a73, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
---- !u!61 &1665809651
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1665809642}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.58, y: 9.463813}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 2.58, y: 9.463813}
-  m_EdgeRadius: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

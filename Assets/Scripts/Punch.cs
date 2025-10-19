@@ -14,6 +14,7 @@ public class Punch : MonoBehaviour
         civilian = GetComponent<Transform>();
         player = FindAnyObjectByType<Player>().transform;
         animator = GetComponent<Animator>();
+        transform.rotation *= Quaternion.Euler(0, 180, 0);
     }
 
     // Update is called once per frame
