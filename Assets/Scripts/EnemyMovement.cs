@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -14,9 +15,7 @@ public class EnemyMovement : HittableBase
     private float distanceFromPlayer;
     private float absoluteDistanceFromPlayer;
     public float invincibilityTime;
-    private float timer;
     private bool cooldown = false;
-    private float currentTime;
 
         [Header("Hit Reaction")]
             public float knockbackForce = 8f;
@@ -26,6 +25,7 @@ public class EnemyMovement : HittableBase
             private SpriteRenderer sr;
             private Color baseColor;
             private bool stunned;
+            [SerializeField] private float flashInterval;
 
 
     [SerializeField] private int health = 300;
@@ -47,19 +47,12 @@ if (sr != null)
     baseColor = sr.color;
 
     }
+    
     // Update is called once per frame
     void Update()
     {
         if (stunned) return;
         
-        timer += Time.deltaTime;
-        if (cooldown)
-        {
-            if (currentTime + 1 <= timer)
-            {
-                cooldown = false;
-            }
-        }
         distanceFromPlayer = enemy.position.x - player.position.x;
         absoluteDistanceFromPlayer = Math.Abs(distanceFromPlayer);
         if (absoluteDistanceFromPlayer < startMovingThreshold)
@@ -102,14 +95,13 @@ if (sr != null)
             {
                 StartCoroutine(HitFeedback());
             }
-            cooldown = true;
-            currentTime = timer;
         }
     }
 
-     private System.Collections.IEnumerator HitFeedback()
+     private IEnumerator HitFeedback()
     {
         stunned = true;
+        cooldown = true;
 
         // Direction away from player
         float dir = 1f;
@@ -127,11 +119,22 @@ if (sr != null)
 
         yield return new WaitForSeconds(flashTime);
 
-        if (sr != null)
-            sr.color = baseColor;
-
         stunned = false;
+
+        float elapsed = 0;
+        while (elapsed < invincibilityTime - flashTime)
+        {
+            sr.color = baseColor;
+            yield return new WaitForSeconds(flashInterval);
+            sr.color = Color.red;
+            yield return new WaitForSeconds(flashInterval);
+            elapsed += flashInterval * 2f;
+        }
+        sr.color = baseColor;
+        cooldown = false;
     }
+     
+    
 
     private void OnDrawGizmosSelected()
     {

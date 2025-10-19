@@ -141,6 +141,7 @@ MonoBehaviour:
   knockbackUp: 2
   flashTime: 0.2
   deathParticle: {fileID: 478717907831610694, guid: 72ae0c834f1d24d93baeb3a112d9b341, type: 3}
+  flashInterval: 0.05
   health: 150
 --- !u!61 &8046509434826007120
 BoxCollider2D:
@@ -233,6 +234,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2201940689813330295}
   - component: {fileID: 1553017135036931227}
+  - component: {fileID: 2865823632773725297}
   m_Layer: 0
   m_Name: hitTrigger
   m_TagString: Enemy
@@ -301,6 +303,20 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 10.588558, y: 1.8941326}
   m_EdgeRadius: 0
+--- !u!114 &2865823632773725297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7747532737000746733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1aa0922d58a3a540a4c0b6edaa6edde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 50
+  sourceObj: {fileID: 8954069673577548771}
 --- !u!1 &9102244099235877585
 GameObject:
   m_ObjectHideFlags: 0

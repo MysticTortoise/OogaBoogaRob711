@@ -53,13 +53,17 @@ public class Player : MonoBehaviour
     public float ZoomOut;
     public float ZoomIn;
     
+    [Header("Damage")]
+    [SerializeField] private float knockback = 150;
+    [SerializeField] private float damageIFrames;
+    
     [Header("Death")]
     public GameObject deathProfile;
     [SerializeField] private float freezeDuration = 1f;
     [SerializeField] private float shakeDuration = 0.5f;
     [SerializeField] private float shakeIntensity = 0.2f;
     [SerializeField] private Color deathColor = Color.red;
-    [SerializeField] private float knockback = 150;
+    
 
 
 
@@ -130,6 +134,8 @@ public class Player : MonoBehaviour
 
     public void TakeDamage(int dmg, Vector3 otherPoint)
     {
+        if(!canTakeDamage) { return; }
+        
         health -= dmg;
         healthDisplay.SetHealthBar((float)health / maxHealth, true);
         rb.linearVelocityX = Mathf.Sign(otherPoint.x - transform.position.x) * -knockback; 
@@ -139,7 +145,9 @@ public class Player : MonoBehaviour
         if (health <= 0)
         {
             Kill();
+            return;
         }
+        StartCoroutine(IFrameFlash(damageIFrames));
     }
 
     public void DoWin(Collectable collectable)
@@ -204,7 +212,7 @@ public class Player : MonoBehaviour
         dashTimer = -dashDuration;
         dashRight = facingRight;
         StartCoroutine(SpawnAfterImages(dashDuration));
-        StartCoroutine(IFrameFlash());
+        StartCoroutine(IFrameFlash(dashDuration + iFrameBuffer));
         cameraVFX.PunchZoom(ZoomIn);
         dashSound.Play();
         itemDisplay.StartItemCooldown((int)ItemDisplay.itemIDS.DODGE, dashCooldown);
@@ -305,7 +313,6 @@ public class Player : MonoBehaviour
         if (dashing)
         {
             rb.linearVelocityX = dashSpeed * (dashRight ? 1 : -1);
-            canTakeDamage = false;
 
             List<Collider2D> colliders = new List<Collider2D>();
             Physics2D.OverlapBox(boxCollider.bounds.center,
@@ -330,16 +337,15 @@ public class Player : MonoBehaviour
     }
 
     // flash
-    private IEnumerator IFrameFlash()
+    private IEnumerator IFrameFlash(float duration)
     {
-        float flashDuration = dashDuration + iFrameBuffer;
         float elapsed = 0f;
-
+        canTakeDamage = false;
         Color normalColor = spriteRenderer.color;
         Color transparentColor = spriteRenderer.color;
         transparentColor.a = 0.3f;
 
-        while (elapsed < flashDuration)
+        while (elapsed < duration)
         {
             spriteRenderer.color = transparentColor;
             yield return new WaitForSeconds(flashInterval);
@@ -393,14 +399,6 @@ public class Player : MonoBehaviour
         cameraTransform.position = MysticUtil.DampVector(
             cameraTransform.position, goalPos,
             cameraTweenAmount, Time.deltaTime);
-    }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (canTakeDamage && other.CompareTag("Enemy"))
-        {
-            TakeDamage(100, other.bounds.center);
-        }
     }
     
         private IEnumerator SpawnAfterImages(float duration)

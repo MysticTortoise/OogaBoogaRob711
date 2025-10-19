@@ -3068,7 +3068,7 @@ MonoBehaviour:
   dashSpeed: 90
   dashDuration: 0.2
   dashCooldown: 0.6
-  iFrameBuffer: 0.05
+  iFrameBuffer: 0.4
   flashInterval: 0.09
   dashHitboxExtra: 2.55
   afterImagePrefab: {fileID: 2192109175974210728, guid: f43a75ea7c2bc4dd6a0cce1baa79eab1, type: 3}
@@ -3084,12 +3084,13 @@ MonoBehaviour:
   normalZoom: 25
   ZoomOut: 30
   ZoomIn: 18
+  knockback: 70
+  damageIFrames: 0.5
   deathProfile: {fileID: 4108984113809124329}
   freezeDuration: 1
   shakeDuration: 0.5
   shakeIntensity: 0.2
   deathColor: {r: 1, g: 0, b: 0, a: 1}
-  knockback: 1000
   cameraVFX: {fileID: 673941410160486994}
   stickboxOffset: {x: 5.59, y: -0.02}
   stickboxSize: {x: 6.03, y: 8.83}

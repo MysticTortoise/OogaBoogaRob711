@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6441309149865608904}
   - component: {fileID: 6295280375612753693}
+  - component: {fileID: 4033956909996061991}
   m_Layer: 0
   m_Name: hitAttack
   m_TagString: Enemy
@@ -78,6 +79,20 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 4.5417366, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &4033956909996061991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7142172140853555934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1aa0922d58a3a540a4c0b6edaa6edde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 100
+  sourceObj: {fileID: 4645638575501245008}
 --- !u!1 &7756609769667878282
 GameObject:
   m_ObjectHideFlags: 0
