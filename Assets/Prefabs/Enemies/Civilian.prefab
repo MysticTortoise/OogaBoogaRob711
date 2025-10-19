@@ -229,7 +229,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2201940689813330295}
   - component: {fileID: 1553017135036931227}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: hitTrigger
   m_TagString: Enemy
   m_Icon: {fileID: 0}

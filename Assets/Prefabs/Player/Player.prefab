@@ -2806,10 +2806,10 @@ BoxCollider2D:
   m_Material: {fileID: 6200000, guid: 75cb9cc57cebbd242ae3972c5445ff66, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 65
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 439
+    m_Bits: 438
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -2858,10 +2858,10 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: 75cb9cc57cebbd242ae3972c5445ff66, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 65
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 55
+    m_Bits: 54
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
