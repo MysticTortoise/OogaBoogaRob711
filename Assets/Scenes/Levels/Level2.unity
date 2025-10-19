@@ -7007,6 +7007,14 @@ PrefabInstance:
       propertyPath: m_Constraints
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 6295280375612753693, guid: 95844a9b65bca38478ce21e845981b72, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6295280375612753693, guid: 95844a9b65bca38478ce21e845981b72, type: 3}
+      propertyPath: m_IncludeLayers.m_Bits
+      value: 513
+      objectReference: {fileID: 0}
     - target: {fileID: 7756609769667878282, guid: 95844a9b65bca38478ce21e845981b72, type: 3}
       propertyPath: m_Name
       value: WeaponEnemy
