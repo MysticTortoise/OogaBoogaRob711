@@ -59,6 +59,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float shakeDuration = 0.5f;
     [SerializeField] private float shakeIntensity = 0.2f;
     [SerializeField] private Color deathColor = Color.red;
+    [SerializeField] private float knockback = 150;
 
 
 
@@ -124,15 +125,25 @@ public class Player : MonoBehaviour
 
     // Statuses
     private bool grounded;
+    private Collectable collectable;
+    private bool winned => collectable != null;
 
-    public void TakeDamage(int dmg)
+    public void TakeDamage(int dmg, Vector3 otherPoint)
     {
         health -= dmg;
         healthDisplay.SetHealthBar((float)health / maxHealth, true);
+        rb.linearVelocityX = otherPoint.x - transform.position.x * -knockback; 
+        noInputTimer = 0.5f;
+        cameraVFX.PunchZoom(Mathf.Lerp(normalZoom, ZoomIn, 0.5f));
         if (health <= 0)
         {
             Kill();
         }
+    }
+
+    public void DoWin(Collectable collectable)
+    {
+        this.collectable = collectable;
     }
     
     private void Start()
@@ -372,8 +383,12 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
-        // Camera
         Vector3 goalPos = transform.position + new Vector3(cameraAheadAmount * (facingRight ? 1 : -1), cameraYAmount,-10);
+        // Camera
+        if (winned)
+        {
+            goalPos = collectable.transform.GetChild(0).position + new Vector3(0,0,-10);
+        }
         cameraTransform.position = MysticUtil.DampVector(
             cameraTransform.position, goalPos,
             cameraTweenAmount, Time.deltaTime);
@@ -383,7 +398,7 @@ public class Player : MonoBehaviour
     {
         if (canTakeDamage && other.CompareTag("Enemy"))
         {
-            TakeDamage(100);
+            TakeDamage(100, other.bounds.center);
         }
     }
     
@@ -436,3 +451,4 @@ public class Player : MonoBehaviour
     }
     #endif
 }
+// The worst player script ever written
