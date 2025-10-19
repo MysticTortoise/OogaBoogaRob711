@@ -3363,7 +3363,7 @@ MonoBehaviour:
   rockPrefab: {fileID: 2724678614697140507, guid: ec9d17e656af3bc4490578cc5726c85b, type: 3}
   maxRocks: 3
   throwSpeed: 150
-  throwCooldown: 1
+  throwCooldown: 0.5
 --- !u!114 &6939166586695113105
 MonoBehaviour:
   m_ObjectHideFlags: 0
