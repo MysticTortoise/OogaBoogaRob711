@@ -136,7 +136,7 @@ MonoBehaviour:
   startMovingThreshold: 30
   stopMovingThreshold: 5
   velocity: 5
-  invincibilityTime: 1
+  invincibilityTime: 0.2
   knockbackForce: 40
   knockbackUp: 2
   flashTime: 0.2

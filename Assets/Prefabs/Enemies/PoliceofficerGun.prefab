@@ -181,11 +181,12 @@ MonoBehaviour:
   startMovingThreshold: 40
   stopMovingThreshold: 40
   velocity: 3
-  invincibilityTime: 0
-  knockbackForce: 8
-  knockbackUp: 2
+  invincibilityTime: 0.2
+  knockbackForce: 30
+  knockbackUp: 0
   flashTime: 0.2
-  deathParticle: {fileID: 0}
+  deathParticle: {fileID: 478717907831610694, guid: 72ae0c834f1d24d93baeb3a112d9b341, type: 3}
+  flashInterval: 0.05
   health: 50
 --- !u!114 &6875831905776703358
 MonoBehaviour:
