@@ -9,21 +9,26 @@ public class ItemDisplaySingle : MonoBehaviour
     [SerializeField] Image cooldownImage;
     [SerializeField] Image cooldownCompleteEffect;
 
+    Coroutine cooldownRoutine;
 
     public void StartItemCooldown(float cooldownTime)
     {
-        DOTween.Kill(cooldownImage);
+        DOTween.Kill(cooldownImage.rectTransform);
+        DOTween.Kill(cooldownImage.sprite);
+        DOTween.Kill(cooldownCompleteEffect.rectTransform);
         DOTween.Kill(cooldownCompleteEffect);
-        StopCoroutine(PlayCooldownEffect(cooldownTime));
+
+        if (cooldownRoutine != null)
+            StopCoroutine(cooldownRoutine);
 
         cooldownCompleteEffect.DOFade(0.7f, 0);
         cooldownImage.DOFade(0.7f, 0);
-        cooldownCompleteEffect.rectTransform.localScale = Vector3.one;
+        cooldownCompleteEffect.rectTransform.DOScale(1, 0);
         cooldownCompleteEffect.gameObject.SetActive(false);
         cooldownImage.gameObject.SetActive(true);
-        cooldownImage.fillAmount = 1;
+        cooldownImage.DOFillAmount(1, 0);
 
-        StartCoroutine(PlayCooldownEffect(cooldownTime));
+        cooldownRoutine = StartCoroutine(PlayCooldownEffect(cooldownTime));
     }
 
     IEnumerator PlayCooldownEffect(float cooldownTime)
