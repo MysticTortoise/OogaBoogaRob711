@@ -8,6 +8,8 @@ public class President : BreakableObject
     [SerializeField] private GameObject explodePrefab;
     [SerializeField] private ContactFilter2D contactFilter;
 
+    private BoxCollider2D dontLeave;
+        
     private Rigidbody2D rb;
 
     private Vector3 startPos;
@@ -16,11 +18,12 @@ public class President : BreakableObject
     {
         startPos = transform.position;
         rb = GetComponent<Rigidbody2D>();
+        dontLeave = transform.parent.GetComponent<BoxCollider2D>();
     }
 
     public override void Hit(HitType type)
     {
-        if (timer > 0)
+        if (timer > 0 || type == HitType.Dash)
         {
             return;
         }
@@ -39,7 +42,8 @@ public class President : BreakableObject
     private void Update()
     {
         base.Update();
-        if (Math.Abs(transform.position.y - startPos.y) > 50)
+
+        if (!dontLeave.bounds.Contains(transform.position))
         {
             transform.position = startPos;
         }
