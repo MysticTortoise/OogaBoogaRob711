@@ -3334,9 +3334,8 @@ MonoBehaviour:
   dashHitboxExtra: 2.55
   afterImagePrefab: {fileID: 2192109175974210728, guid: f43a75ea7c2bc4dd6a0cce1baa79eab1, type: 3}
   afterImageLifetime: 0.3
-  afterImageSpawnInterval: 0.05
+  afterImageSpawnInterval: 0.04
   afterImageColor: {r: 0, g: 0.8105297, b: 1, a: 0.5}
-  afterImageSprite: {fileID: 4068917314756290430, guid: b521a547fdc55473bbcd290897a59a58, type: 3}
   maxHealth: 1000
   canTakeDamage: 1
   cameraAheadAmount: 3

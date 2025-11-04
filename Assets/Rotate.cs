@@ -19,8 +19,8 @@ public class Rotate : MonoBehaviour
     // Update is called once per frame
         void Update()
     {
-        Debug.Log("Enemy Position: " + cop.position.x);
-        Debug.Log("Player Position: " + player.position.x);
+        //Debug.Log("Enemy Position: " + cop.position.x);
+        //Debug.Log("Player Position: " + player.position.x);
         absoluteDistanceFromPlayer = Math.Abs(cop.position.x - player.position.x);
         if (absoluteDistanceFromPlayer <= threshold)
         {

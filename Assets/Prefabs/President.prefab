@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7244500164424435974}
   - component: {fileID: 6494246279740628962}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: President
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49,7 +49,7 @@ BoxCollider2D:
     m_Bits: 1024
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 512
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2

@@ -17,7 +17,7 @@ public class shootProjectile : MonoBehaviour
 
     public void Initialize(Transform enemyTransform)
     {
-        Debug.Log("Script is running");
+        //Debug.Log("Script is running");
         enemy = enemyTransform;
         projectile = GetComponent<Transform>();
         player = FindAnyObjectByType<Player>().transform;

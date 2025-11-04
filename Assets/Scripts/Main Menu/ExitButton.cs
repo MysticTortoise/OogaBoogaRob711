@@ -30,7 +30,7 @@ public class ExitButton : MonoBehaviour
         }
         else if (confirmExit == true && isAnimating == false)
         {
-            Debug.Log("goodbye!");
+            //Debug.Log("goodbye!");
             StartCoroutine(ExitGame());
         }
     }

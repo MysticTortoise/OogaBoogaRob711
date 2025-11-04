@@ -36,15 +36,14 @@ public class Player : MonoBehaviour
     public float afterImageLifetime = 0.3f;
     public float afterImageSpawnInterval = 0.05f;
     public Color afterImageColor = new Color(1f, 0f, 0f, 0.5f);
-    public Sprite afterImageSprite; 
 
     [Header("Stats")]
     [SerializeField] private int maxHealth = 1000;
     private int health;
 
     [Header("Hitbox")]
-    public bool canTakeDamage = true;
-    
+    private bool canTakeDamage => iFrameTimer <= 0;
+
     [Header("Camera")]
     [SerializeField] private float cameraAheadAmount;
     [SerializeField] private float cameraTweenAmount;
@@ -120,6 +119,8 @@ public class Player : MonoBehaviour
     private bool dashing => dashTimer < 0;
     private bool dashOnCooldown => dashTimer < dashCooldown;
 
+    private float iFrameTimer;
+
     // Input Variables
     private float noInputTimer;
     private bool canInput => noInputTimer <= 0;
@@ -135,15 +136,21 @@ public class Player : MonoBehaviour
     private Collectable collectable;
     private bool winned => collectable != null;
 
+    private List<Tuple<GameObject, SpriteRenderer>> afterimages = new List<Tuple<GameObject, SpriteRenderer>>();
+    private int afterImageIndex = 0;
+
     public void TakeDamage(int dmg, Vector3 otherPoint)
     {
-        if(!canTakeDamage) { return; }
+        if(!canTakeDamage || winned || isDead)
+        {
+            return; 
+        }
         
         health -= dmg;
         healthDisplay.SetHealthBar((float)health / maxHealth, true);
         healthDisplay.SetHealthText($"{health} / {maxHealth}");
         rb.linearVelocityX = Mathf.Sign(otherPoint.x - transform.position.x) * -knockback; 
-        Debug.Log(rb.linearVelocityX);
+        //Debug.Log(rb.linearVelocityX);
         noInputTimer = 0.5f;
         cameraVFX.PunchZoom(Mathf.Lerp(normalZoom, ZoomIn, 0.5f));
         if (health <= 0)
@@ -151,7 +158,13 @@ public class Player : MonoBehaviour
             Kill();
             return;
         }
-        StartCoroutine(IFrameFlash(damageIFrames));
+        
+        StartIFrames(damageIFrames);
+    }
+
+    private void StartIFrames(float timer)
+    {
+        iFrameTimer = timer;
     }
 
     public void DoWin(Collectable collectable)
@@ -179,6 +192,16 @@ public class Player : MonoBehaviour
         itemDisplay = FindAnyObjectByType<ItemDisplay>();
 
         health = maxHealth;
+
+        for (uint i = 0; i < Mathf.Ceil(dashDuration / afterImageSpawnInterval) + 1; i++)
+        {
+            GameObject ghost = Instantiate(afterImagePrefab);
+            SpriteRenderer ghostSR = ghost.GetComponent<SpriteRenderer>();
+            ghostSR.color = afterImageColor;
+            ghost.GetComponent<DisableAfter>().timeTillGone = afterImageLifetime;
+            afterimages.Add(new Tuple<GameObject, SpriteRenderer>(ghost, ghostSR));
+            ghost.SetActive(false);
+        }
     }
 
     public void MoveInput(InputAction.CallbackContext context)
@@ -216,7 +239,7 @@ public class Player : MonoBehaviour
         dashTimer = -dashDuration;
         dashRight = facingRight;
         StartCoroutine(SpawnAfterImages(dashDuration));
-        StartCoroutine(IFrameFlash(dashDuration + iFrameBuffer));
+        StartIFrames(dashDuration + iFrameBuffer);
         cameraVFX.PunchZoom(ZoomIn);
         animator.SetTrigger("roll");
         dashSound.Play();
@@ -285,6 +308,7 @@ public class Player : MonoBehaviour
         stickCooldownTimer -= Time.deltaTime;
         stickAttackTimer -= Time.deltaTime;
         rockAttackTimer -= Time.deltaTime;
+        iFrameTimer -= Time.deltaTime;
 
         // Stick Check
         if (stickAttackTimer > 0)
@@ -342,6 +366,7 @@ public class Player : MonoBehaviour
         spriteRenderer.flipX = !facingRight;
         animator.SetFloat("MoveSpeed", rb.linearVelocityX);
         animator.SetBool("InAir", !grounded);
+        animator.SetBool("IFrames", !canTakeDamage);
         
         
     }
@@ -351,36 +376,13 @@ public class Player : MonoBehaviour
         sound.Play();
     }
 
-    // flash
-    private IEnumerator IFrameFlash(float duration)
-    {
-        float elapsed = 0f;
-        canTakeDamage = false;
-        Color normalColor = spriteRenderer.color;
-        Color transparentColor = spriteRenderer.color;
-        transparentColor.a = 0.3f;
-
-        while (elapsed < duration)
-        {
-            spriteRenderer.color = transparentColor;
-            yield return new WaitForSeconds(flashInterval);
-            spriteRenderer.color = normalColor;
-            yield return new WaitForSeconds(flashInterval);
-            elapsed += flashInterval * 2f;
-        }
-
-        //set colors back
-        spriteRenderer.color = normalColor;
-        //Reenable Damage
-        canTakeDamage = true;
-    }
+    
 
     private IEnumerator DeathRoutine()
     {
     if (isDead) yield break;
     isDead = true;
-
-    canTakeDamage = false;
+    
     noInputTimer = 999f;
     cameraVFX.StartScreenShake(1f, .4f);
     deathProfile.SetActive(true);
@@ -421,19 +423,18 @@ public class Player : MonoBehaviour
         float elapsed = 0f;
         while (elapsed < duration)
         {
-            GameObject ghost = Instantiate(afterImagePrefab, transform.position, transform.rotation);
-            SpriteRenderer ghostSR = ghost.GetComponent<SpriteRenderer>();
+            GameObject ghost = afterimages[afterImageIndex].Item1;
+            
+            // always use your chosen sprite
+            afterimages[afterImageIndex].Item2.sprite = spriteRenderer.sprite;
+            afterImageIndex = (afterImageIndex + 1) % afterimages.Count;
+            
+            Transform spriteTransform = spriteRenderer.transform;
 
-            if (ghostSR != null)
-            {
-                // always use your chosen sprite
-                if (afterImageSprite != null)
-                    ghostSR.sprite = afterImageSprite;
-
-                ghostSR.color = afterImageColor;
-            }
-
-            Destroy(ghost, afterImageLifetime);
+            ghost.transform.position = spriteTransform.position;
+            ghost.transform.rotation = spriteTransform.rotation;
+            ghost.transform.localScale = spriteTransform.lossyScale;
+            ghost.SetActive(true);
 
             yield return new WaitForSeconds(afterImageSpawnInterval);
             elapsed += afterImageSpawnInterval;
