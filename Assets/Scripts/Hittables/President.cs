@@ -11,6 +11,7 @@ public class President : BreakableObject
     private BoxCollider2D dontLeave;
         
     private Rigidbody2D rb;
+    private Animator hitAnimator;
 
     private Vector3 startPos;
 
@@ -18,6 +19,7 @@ public class President : BreakableObject
     {
         startPos = transform.position;
         rb = GetComponent<Rigidbody2D>();
+        hitAnimator = GetComponent<Animator>();
         dontLeave = transform.parent.GetComponent<BoxCollider2D>();
     }
 
@@ -30,7 +32,7 @@ public class President : BreakableObject
         base.Hit(type);
         
         hits--;
-        Debug.Log(hits);
+        hitAnimator.SetTrigger("Hit");
 
         if (hits <= 0)
         {
