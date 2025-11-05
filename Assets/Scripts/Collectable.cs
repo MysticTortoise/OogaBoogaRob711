@@ -27,5 +27,6 @@ public class Collectable : MonoBehaviour
     private void YouWin()
     {
         FindAnyObjectByType<Fade>().DoFade(Color.white, true, 3, "Level Select");
+        LevelSelectIntroAnim.WasInLevel = true;
     }
 }

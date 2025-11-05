@@ -54,8 +54,5 @@ public class BackButton : MonoBehaviour
 
         // play scene transition animation
         sceneTransition.SetTrigger("TriggerReturnTransition");
-        yield return new WaitForSeconds(sceneTransition.GetCurrentAnimatorClipInfo(0)[0].clip.length);
-
-        SceneManager.LoadScene(targetScene);
     }
 }

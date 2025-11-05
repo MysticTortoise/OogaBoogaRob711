@@ -8,6 +8,7 @@ public class CreditsButton : MonoBehaviour
     [SerializeField] Button creditsOpenButton;
     [SerializeField] Button creditsCloseButton;
     [SerializeField] Animator creditsAnimation;
+    [SerializeField] private Animator exitButtonAnimation;
 
 
 
@@ -30,10 +31,12 @@ public class CreditsButton : MonoBehaviour
         if(buttonMode == 0)
         {
             StartCoroutine(OpenCredits());
+            exitButtonAnimation.SetBool("Hide", true);
         }
         else
         {
             StartCoroutine(CloseCredits());
+            exitButtonAnimation.SetBool("Hide", false);
         }
 
 
