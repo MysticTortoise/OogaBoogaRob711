@@ -42,7 +42,7 @@ public class Player : MonoBehaviour
     private int health;
 
     [Header("Hitbox")]
-    private bool canTakeDamage => iFrameTimer <= 0;
+    [HideInInspector] public bool canTakeDamage => iFrameTimer <= 0;
 
     [Header("Camera")]
     [SerializeField] private float cameraAheadAmount;
@@ -141,7 +141,7 @@ public class Player : MonoBehaviour
 
     public void TakeDamage(int dmg, Vector3 otherPoint)
     {
-        if(!canTakeDamage || winned || isDead)
+        if(!canTakeDamage || isDead)
         {
             return; 
         }

@@ -40,14 +40,17 @@ public class EnemyMovement : HittableBase
         enemy = GetComponent<Transform>();
         player = FindAnyObjectByType<Player>().transform;
         sr = GetComponent<SpriteRenderer>();
-    if (sr == null)
-    {
-        var child = transform.Find("Sprite");
-        if (child != null)
-            sr = child.GetComponent<SpriteRenderer>();
-    }
-if (sr != null)
-    baseColor = sr.color;
+        if (sr == null)
+        {
+            var child = transform.Find("Sprite");
+            if (child != null)
+                sr = child.GetComponent<SpriteRenderer>();
+        }
+        if (sr != null)
+            baseColor = sr.color;
+    
+        if (anim == null) 
+            anim = GetComponent<Animator>();
 
     }
     
@@ -84,6 +87,10 @@ if (sr != null)
                 rb.linearVelocityX = velocity;
                 anim.SetBool("move", true);
             }
+        }
+        else
+        {
+            anim.SetBool("move", false);
         }
     }
 

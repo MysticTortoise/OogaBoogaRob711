@@ -21,7 +21,7 @@ public class Punch : MonoBehaviour
     void Update()
     {
 
-        absoluteDistanceFromPlayer = Math.Abs(civilian.position.x - player.position.x);
+        absoluteDistanceFromPlayer = (civilian.position - player.position).magnitude;
         if (absoluteDistanceFromPlayer <= threshold)
         {
             animator.SetBool("inPunchingDistance", true);

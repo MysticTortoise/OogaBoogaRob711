@@ -64,12 +64,18 @@ public class shootProjectile : MonoBehaviour
                 timer = 0;
             }
         }
+
+        render.flipX = speed > 0;
     }
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.tag == "Player")
+        if (collider.GetComponent<Player>() is Player player)
         {
-            timer = 0;
+            if (!player.canTakeDamage)
+            {
+                return;
+            }
         }
+        timer = 0;
     }
 }
