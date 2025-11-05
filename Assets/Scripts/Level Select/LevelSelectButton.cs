@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -15,18 +16,27 @@ public class LevelSelectButton : MonoBehaviour
     [SerializeField] Image fadeToWhite;
     [SerializeField] AudioSource enterLevelSFX;
     [SerializeField] string levelToLoad;
+    [SerializeField] private int levelNumber;
 
     bool lockActions = false; // prevent all buttons from being interacted with
+
+    private void Start()
+    {
+        if (SaveData.levelsBeaten < levelNumber - 1)
+        {
+            levelButton.interactable = false;
+        }
+    }
 
     public void LockActions()
     {
         lockActions = true;
-        levelButton.interactable = false;
+        //levelButton.interactable = false;
     }
 
     public void OnHover()
     {
-        if(lockActions) 
+        if(lockActions || !levelButton.interactable) 
             return;
 
         DOTween.Kill(levelButtonText);
@@ -45,7 +55,7 @@ public class LevelSelectButton : MonoBehaviour
 
     public void OnExit()
     {
-        if(lockActions) 
+        if(lockActions || !levelButton.interactable) 
             return;
 
         DOTween.Kill(levelButtonText);
@@ -63,7 +73,7 @@ public class LevelSelectButton : MonoBehaviour
 
     public void OnClick()
     {
-        if (lockActions) 
+        if (lockActions || !levelButton.interactable) 
             return;
 
         // lock all buttons to prevent multiple clicks

@@ -394,7 +394,7 @@ MonoBehaviour:
     m_HighlightedSprite: {fileID: 21300000, guid: 3f87479a757f3d44580a47e4c45d58db, type: 3}
     m_PressedSprite: {fileID: 21300000, guid: a9f02641448d52f49b614196fc74ae2c, type: 3}
     m_SelectedSprite: {fileID: 21300000, guid: 3f87479a757f3d44580a47e4c45d58db, type: 3}
-    m_DisabledSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: -5530886249742206906, guid: f04f1fff4b53c264a8f5a0595fcf2417, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -894,7 +894,7 @@ MonoBehaviour:
     m_HighlightedSprite: {fileID: 21300000, guid: e4e91435e0bab8e41a3cf0e6d9bf9289, type: 3}
     m_PressedSprite: {fileID: 21300000, guid: d6d2da7843461c04c8be31689c26d2a8, type: 3}
     m_SelectedSprite: {fileID: 21300000, guid: e4e91435e0bab8e41a3cf0e6d9bf9289, type: 3}
-    m_DisabledSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: -1285405276483864557, guid: 119a55adf775ac946a9aa44a65c21579, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -1389,6 +1389,7 @@ MonoBehaviour:
   fadeToWhite: {fileID: 2015799833}
   enterLevelSFX: {fileID: 175327926}
   levelToLoad: Level4Chicago
+  levelNumber: 4
 --- !u!1 &687886684
 GameObject:
   m_ObjectHideFlags: 0
@@ -1460,7 +1461,7 @@ MonoBehaviour:
     m_HighlightedSprite: {fileID: 21300000, guid: 7ca5bc6b1fb9d7647829d358df04ad49, type: 3}
     m_PressedSprite: {fileID: 21300000, guid: 2f89f633aa79b064f840975167f9fda9, type: 3}
     m_SelectedSprite: {fileID: 21300000, guid: 7ca5bc6b1fb9d7647829d358df04ad49, type: 3}
-    m_DisabledSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 8248171639830698053, guid: bd5073fc0a6bd414e9990995adb47179, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -1625,6 +1626,7 @@ MonoBehaviour:
   fadeToWhite: {fileID: 2015799833}
   enterLevelSFX: {fileID: 175327926}
   levelToLoad: Level3
+  levelNumber: 3
 --- !u!1 &880531035
 GameObject:
   m_ObjectHideFlags: 0
@@ -1683,6 +1685,7 @@ MonoBehaviour:
   fadeToWhite: {fileID: 2015799833}
   enterLevelSFX: {fileID: 175327926}
   levelToLoad: Level2
+  levelNumber: 2
 --- !u!1 &919225870
 GameObject:
   m_ObjectHideFlags: 0
@@ -1776,6 +1779,7 @@ MonoBehaviour:
   fadeToWhite: {fileID: 2015799833}
   enterLevelSFX: {fileID: 175327926}
   levelToLoad: Level1Idaho
+  levelNumber: 1
 --- !u!1 &1049495551
 GameObject:
   m_ObjectHideFlags: 0
@@ -1847,7 +1851,7 @@ MonoBehaviour:
     m_HighlightedSprite: {fileID: 21300000, guid: 64978a6baa6c55e46877370a43ceefb2, type: 3}
     m_PressedSprite: {fileID: 21300000, guid: 1c42f7cf700e9f74aa00df2e3f6d29ee, type: 3}
     m_SelectedSprite: {fileID: 21300000, guid: 64978a6baa6c55e46877370a43ceefb2, type: 3}
-    m_DisabledSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: -7058456499754572000, guid: ee23106d7307f2745b632b51d7ec623d, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -2148,6 +2152,7 @@ MonoBehaviour:
   fadeToWhite: {fileID: 2015799833}
   enterLevelSFX: {fileID: 175327926}
   levelToLoad: Level5
+  levelNumber: 5
 --- !u!1 &1202077509
 GameObject:
   m_ObjectHideFlags: 0
@@ -2408,7 +2413,7 @@ MonoBehaviour:
     m_HighlightedSprite: {fileID: 21300000, guid: 4fefd8360cdf92944a5f154499e19a49, type: 3}
     m_PressedSprite: {fileID: 21300000, guid: 9544c86797a1da746be9fc9fb582ba43, type: 3}
     m_SelectedSprite: {fileID: 21300000, guid: 4fefd8360cdf92944a5f154499e19a49, type: 3}
-    m_DisabledSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: -3338788987501922595, guid: 0a8192f210b5d544ca465120b933843b, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted

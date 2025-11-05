@@ -1,8 +1,10 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Collectable : MonoBehaviour
 {
+    
     private Animator animator;
     private bool collected = false;
 
@@ -28,5 +30,12 @@ public class Collectable : MonoBehaviour
     {
         FindAnyObjectByType<Fade>().DoFade(Color.white, true, 3, "Level Select");
         LevelSelectIntroAnim.WasInLevel = true;
+
+        int thisLevel = int.Parse(SceneManager.GetActiveScene().name.Substring(5, 1));
+        if (SaveData.levelsBeaten < thisLevel)
+        {
+            SaveData.levelsBeaten = thisLevel;
+            SaveData.SaveGame();
+        }
     }
 }

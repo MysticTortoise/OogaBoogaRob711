@@ -3517,6 +3517,7 @@ GameObject:
   - component: {fileID: 905737982}
   - component: {fileID: 905737981}
   - component: {fileID: 905737980}
+  - component: {fileID: 905737984}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -3612,6 +3613,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 800, y: 450}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &905737984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 905737979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3312d7739989d2b4e91e6319e9a96d76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding: {x: 0, y: 0, z: 0, w: 0}
+  m_Softness: {x: 0, y: 0}
 --- !u!1 &961656832
 GameObject:
   m_ObjectHideFlags: 0
@@ -4362,6 +4377,7 @@ GameObject:
   - component: {fileID: 1285409738}
   - component: {fileID: 1285409741}
   - component: {fileID: 1285409742}
+  - component: {fileID: 1285409743}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -4500,6 +4516,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   desiredAspectWidth: 1.7777778
+--- !u!114 &1285409743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1285409737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8500434dd758411bb5bc90ffb5de3b67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1298803775
 GameObject:
   m_ObjectHideFlags: 0
