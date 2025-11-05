@@ -39,9 +39,6 @@ public class ExitButton : MonoBehaviour
     {
         isAnimating = true;
         confirmButton.interactable = false;
-        
-        xButtonImage.DOFade(0, 0.15f);
-        xButtonImage.rectTransform.DOScale(0, 0.15f);
 
         confirmText.text = "CONFIRM (3)";
         backgroundAnimator.SetTrigger("ExitButtonEnter");
@@ -65,7 +62,6 @@ public class ExitButton : MonoBehaviour
         xButtonImage.rectTransform.localScale = Vector3.one;
         isAnimating = false;
         confirmExit = false;
-        exitButtonBackground.SetActive(false);
     }
 
     IEnumerator ExitGame()

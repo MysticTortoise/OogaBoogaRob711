@@ -31,7 +31,7 @@ public class CreditsButton : MonoBehaviour
         if(buttonMode == 0)
         {
             StartCoroutine(OpenCredits());
-            exitButtonTransform.SetSiblingIndex(transform.GetSiblingIndex()-1);
+            exitButtonTransform.SetSiblingIndex(transform.GetSiblingIndex() - 1);
         }
         else
         {
