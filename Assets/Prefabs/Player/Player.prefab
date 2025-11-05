@@ -2594,7 +2594,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 437b244dfa4363c4aa172c4a284201d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialFade: {r: 0, g: 0, b: 0, a: 0}
+  initialFade: {r: 1, g: 1, b: 1, a: 0}
   initialTo: 0
   initialTime: 1
   doInitial: 1
@@ -2656,7 +2656,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3337,7 +3337,6 @@ MonoBehaviour:
   afterImageSpawnInterval: 0.04
   afterImageColor: {r: 0, g: 0.8105297, b: 1, a: 0.5}
   maxHealth: 1000
-  canTakeDamage: 1
   cameraAheadAmount: 3
   cameraTweenAmount: 6
   cameraYAmount: 5
