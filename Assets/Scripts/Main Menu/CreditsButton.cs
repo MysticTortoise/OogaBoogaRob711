@@ -8,7 +8,7 @@ public class CreditsButton : MonoBehaviour
     [SerializeField] Button creditsOpenButton;
     [SerializeField] Button creditsCloseButton;
     [SerializeField] Animator creditsAnimation;
-    [SerializeField] private Animator exitButtonAnimation;
+    [SerializeField] private Transform exitButtonTransform;
 
 
 
@@ -31,12 +31,11 @@ public class CreditsButton : MonoBehaviour
         if(buttonMode == 0)
         {
             StartCoroutine(OpenCredits());
-            exitButtonAnimation.SetBool("Hide", true);
+            exitButtonTransform.SetSiblingIndex(transform.GetSiblingIndex()-1);
         }
         else
         {
             StartCoroutine(CloseCredits());
-            exitButtonAnimation.SetBool("Hide", false);
         }
 
 
@@ -68,6 +67,7 @@ public class CreditsButton : MonoBehaviour
         }
         buttonMode = 0;
         isAnimating = false;
+        exitButtonTransform.SetSiblingIndex(transform.GetSiblingIndex()+1);
     }
 
 }

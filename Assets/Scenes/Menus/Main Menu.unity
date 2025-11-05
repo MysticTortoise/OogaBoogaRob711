@@ -395,7 +395,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.05244219, y: 0.07439833}
   m_AnchorMax: {x: 0.95944744, y: 0.42160168}
-  m_AnchoredPosition: {x: -0.99998474, y: 0.19968414}
+  m_AnchoredPosition: {x: -0.99998474, y: 0.19968033}
   m_SizeDelta: {x: 6, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &137843363
@@ -2735,7 +2735,7 @@ MonoBehaviour:
   creditsOpenButton: {fileID: 193326895}
   creditsCloseButton: {fileID: 1984789607}
   creditsAnimation: {fileID: 702371429}
-  exitButtonAnimation: {fileID: 1274408126}
+  exitButtonTransform: {fileID: 91588181}
 --- !u!1 &727376459
 GameObject:
   m_ObjectHideFlags: 0
@@ -3210,7 +3210,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 4227858431
   m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -3703,7 +3703,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &978137057
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4247,6 +4247,7 @@ GameObject:
   - component: {fileID: 1274408125}
   - component: {fileID: 1274408124}
   - component: {fileID: 1274408126}
+  - component: {fileID: 1274408127}
   m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
@@ -4336,6 +4337,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!225 &1274408127
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1274408122}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1285409737
 GameObject:
   m_ObjectHideFlags: 0
@@ -5353,7 +5366,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 4227858431
   m_fontColor: {r: 1, g: 1, b: 1, a: 0}
   m_enableVertexGradient: 0
   m_colorMode: 3
